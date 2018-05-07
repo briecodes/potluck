@@ -8,14 +8,13 @@
 
 Event.destroy_all
 Ingredient.destroy_all
-User.destroy_all 
+User.destroy_all
 Recipe.destroy_all
 
 Event.create(title: "Mod2 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
 Ingredient.create(name:"Tumeric")
 Ingredient.create(name:"Anchovies")
 Ingredient.create(name:"Garlic")
-@a = User.create(name: "Ahamed", password_digest: "123")
-User.create(name: "Daniel", password_digest: "678")
-Recipe.create(title: "Tumeric Caesar Salad", details: "Not good probably", user_id: @a.id)
-
+@a = User.create(name: "Ahamed", username: "ahamed1", password: "1234")
+User.create(name: "Daniel", username: "damndaniel", password: "password")
+Recipe.create(name: "Tumeric Caesar Salad", details: "Not good probably", user_id: @a.id)
