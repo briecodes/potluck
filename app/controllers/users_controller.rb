@@ -1,9 +1,26 @@
 class UsersController < ApplicationController
   before_action(:get_user, only:[:show, :edit, :update, :destroy])
 
+
+
   def show
     #@upcoming_events = Event.where("user_id = ?", @user.id).order("date ASC")
     @upcoming_events = User.joins("INNER JOIN user_events ON user_events.user_id = users.id")
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.create(user_params)
+
+      if @user.valid?
+        redirect_to @user
+      else
+        flash[:errors] = @user.errors.full_messages
+        redirect_to sign_up_path
+    end
   end
 
   def edit
@@ -26,6 +43,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:username, :name, :password, :password_confirmation)
+  end
 
   def upcoming_events
     @user.events.sort_by
