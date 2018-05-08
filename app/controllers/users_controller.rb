@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     session.delete(:user_id)
-    flash[:notice] = "You account has been deleted from Potluck. Create a new account to continue using our application"
+    flash[:notice] = "Your account has been deleted from Potluck. Create a new account to continue using our application"
     #redirect_to login_path
   end
 
