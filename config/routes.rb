@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'sessions#welcome'
+
   resources :events
   resources :ingredients
   resources :recipes
