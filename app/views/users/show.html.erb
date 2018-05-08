@@ -1,21 +1,19 @@
-<p id="notice"><%= notice %></p>
+<% if session[:user] == @user.id %>
+  <h1>Upcoming Events</h1>
+  <ul>
+    <% @upcoming_events.each do |event_obj| %>
+      <%= event_obj.name %>
+    <% end %>
+  </ul>
 
-<div id="main-container" class="container">
-  <div class="row">
-    <div id="content" class="col-xs-9">
-<h1>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</h1>
+  <h1>Past Events</h1>
 
-<h4>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</h4>
+  <h1>Recipes</h1>
+  <ul>
+    <% @user.recipes[0..2].each do |recipe_obj| %>
+      <%= recipe_obj.name %>
+    <% end %>
+  </ul>
 
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
-</div>
-</div>
-</div>
+  <%link_to "More Recipes>>>"%>
+<% end %>

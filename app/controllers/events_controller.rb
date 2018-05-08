@@ -1,7 +1,10 @@
 class EventsController < ApplicationController
-  before_action(:get_event, only:[:show, :edit, :update, :destroy])
+  before_action(:get_event, only:[:show, :edit, :update, :destroy, :join_event, :leave_event])
 
   def index
+    if !logged_in
+      #redirect_to login_page
+    end
     @events = Event.all
   end
 
@@ -17,7 +20,7 @@ class EventsController < ApplicationController
 
     if @event.valid?
       @event.save
-      #@event.users << User.find(current_user) =>@event.users << User.find(session[:user_id])
+      @event.users << User.find(session[:user_id])
       redirect_to events_path
     else
       flash[:error] = @event.errors.full_messages
@@ -40,18 +43,19 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
+    flash[:notice] = "Event has been deleted. Go to self page to create a new event"
     redirect_to events_path
   end
 
   def join_event
     flash[:notice] = "Joined Event"
-    #@event.users << User.find(current_user)
+    @event.users << User.find(session[:user_id])
     redirect_to events_path
   end
 
   def leave_event
     flash[:notice] = "Left Event"
-    #event.users.delete(User.find(current_user))
+    @event.users.delete(User.find(session[:user_id]))
     redirect_to events_path
   end
 
