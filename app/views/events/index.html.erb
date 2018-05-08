@@ -1,0 +1,10 @@
+<h2>Events</h1>
+
+<%= flash[:notice] %>
+
+<% @events.each do |event_obj| %>
+  <ul><strong><%= link_to event_obj.title, event_path(event_obj)%></strong></ul>
+  <li><%= event_obj.location %></li>
+  <li><%= event_obj.date %></li>
+  <li><%= event_obj.details %></li><br>
+<% end %>
