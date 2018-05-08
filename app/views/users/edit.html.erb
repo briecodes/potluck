@@ -1,0 +1,10 @@
+<% if session[:user] == @user.id %>
+  <h1>Edit Profile</h1>
+
+  <%= form_for @user do |u| %>
+    <%= u.label :name %>
+    <%= u.text_field :name %>
+
+    <%= u.submit %>
+  <% end %>
+<% end %>
