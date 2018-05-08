@@ -20,6 +20,9 @@ end
 # Recipe.destroy_all
 
 Event.create(title: "Mod2 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
-@a = User.create(name: "Ahamed", username: "ahamed1", password: "1234")
-User.create(name: "Daniel", username: "damndaniel", password: "password")
-Recipe.create(name: "Tumeric Caesar Salad", details: "Not good probably", user_id: @a.id)
+# @a = User.create(name: "Ahamed", username: "ahamed1", password: "1234")
+# User.create(name: "Daniel", username: "damndaniel", password: "password")
+
+#Recipe.create(name: "Tumeric Caesar Salad", details: "Not good probably", user_id: @a.id)
+
+# Recipe.create(name: "Tumeric Caesar Salad", details: "Not good probably", user_id: @a.id)
