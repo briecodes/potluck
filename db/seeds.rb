@@ -18,6 +18,3 @@ Ingredient.create(name:"Garlic")
 @a = User.create(name: "Ahamed", username: "ahamed1", password: "1234")
 User.create(name: "Daniel", username: "damndaniel", password: "password")
 Recipe.create(name: "Tumeric Caesar Salad", details: "Not good probably", user_id: @a.id)
-
-
-# Food2Fork Databse API key (for ingredients): 7f2f3112c46b9bb405cba185cb3d095c
