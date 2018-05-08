@@ -1,0 +1,47 @@
+<% puts "post to #{post_url}" %>
+
+<%= form_for @recipe, url: post_url do |f| %>
+  <div class="row">
+    <div id="content" class="col-sm-1">
+    </div>
+    <div id="content" class="col-md-4">
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control"%><br>
+      </div>
+      <div class="form-group">
+        <%= f.label :details %>
+        <%= f.text_field :details, class: "form-control"%><br>
+      </div>
+      <%= f.label :ingredients %>
+      <div class="dropdown">
+        <div id=myDropdown class="dropdown-content">
+          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()" class="form-control">
+          <% @ingredients.each do |ing| %>
+          <li><input value="<%=ing.id%>" type="checkbox" name="recipe[ingredient_ids][]"/><%= link_to ing.name, ing %></li>
+          <% end %>
+        </div>
+      </div>
+      <%= f.submit %>
+    </div>
+    <div id="content" class="col-md-4">
+    </div>
+  </div>
+<% end %>
+
+<script>
+  function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("li");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+  }
+</script>
