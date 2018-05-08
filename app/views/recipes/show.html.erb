@@ -1,6 +1,6 @@
 <h1><%= @recipe.name %></h1>
 <p><%= @recipe.details %></p>
-<p>Ingredients:</p><br>
+<p>Ingredients:</p>
 <% @recipe.ingredients.each do |i| %>
   <p><%=link_to i.name, i %></p>
 <% end %>

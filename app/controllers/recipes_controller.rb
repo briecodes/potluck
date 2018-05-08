@@ -12,9 +12,13 @@ class RecipesController < ApplicationController
   end
 
   def create
-    # byebug
-    @recipe = Recipe.create(recipe_params)
-    redirect_to recipes_path
+    @ingredients = Ingredient.all
+    @recipe = Recipe.new(recipe_params)
+    if @recipe.save
+      redirect_to recipes_path
+    else
+      render :new
+    end
   end
 
   def edit
