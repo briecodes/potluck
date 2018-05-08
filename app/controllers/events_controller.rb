@@ -9,9 +9,15 @@ class EventsController < ApplicationController
   end
 
   def show
+    if !logged_in
+      #redirect_to login_page
+    end
   end
 
   def new
+    if !logged_in
+      #redirect_to login_page
+    end
     @event = Event.new
   end
 
@@ -29,7 +35,9 @@ class EventsController < ApplicationController
   end
 
   def edit
-    #If the user logged_in and !!!
+    if !logged_in
+      #redirect_to login_page
+    end
   end
 
   def update

@@ -10,10 +10,12 @@
 
   <h1>Recipes</h1>
   <ul>
-    <% @user.recipes[0..2].each do |recipe_obj| %>
+    <% @recipes.each do |recipe_obj| %>
       <%= recipe_obj.name %>
     <% end %>
   </ul>
 
   <%link_to "More Recipes>>>"%>
+<% else %>
+  <%= link_to "Login Page" %>
 <% end %>
