@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :recipes
   resources :users, only: [:index, :create, :show, :edit, :update]
-
-  get '/login', to: 'sessions#new', as: "log_in"
   get "/signup", to: "users#new", as: "sign_up"
+  get '/login', to: 'sessions#new', as: "log_in"
   post "/sessions", to: "sessions#create", as: "sessions"
   post "/logout", to: "sessions#destroy", as: "log_out"
 

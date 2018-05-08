@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         redirect_to @user
       else
         flash[:errors] = @user.errors.full_messages
+        redirect_to sign_up_path
     end
   end
 
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :name, :password, :password_confirmation, recipes: [])
+    params.require(:user).permit(:username, :name, :password, :password_confirmation)
   end
 
 
