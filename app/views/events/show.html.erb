@@ -1,0 +1,29 @@
+<h1><%= @event.title %> </h1><br>
+
+<h3>Recipes: </h3> <br>
+<ul>
+  <% @event.recipes.each do |recipe_obj| %>
+    <li><%= recipe_obj.name %> by <%= recipe_obj.user.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Edit Event", edit_event_path(@event)%>
+
+<%= form_tag(@event, method: "delete") do %>
+  <%= submit_tag "Delete Event" %>
+<% end %>
+
+<%= form_tag({controller: "events", method: "post", action: "join_event"}) do %>
+  <%= submit_tag "Join Event"%>
+<% end %>
+
+<%= form_tag({controller: "events", method: "post", action: "leave_event"}) do %>
+  <%= submit_tag "Leave Event"%>
+<% end %>
+
+Make sure they cannot edit and/or delete other people's events
+If the user has this event,
+  -then display the edit and delete and leave button and do not display the join button because
+they have automatically join event they create
+
+if logged_in && current_user.events.include?(@event)

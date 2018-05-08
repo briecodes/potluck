@@ -1,0 +1,19 @@
+<% if session[:user] == @user.id %>
+  <h1>Upcoming Events</h1>
+  <ul>
+    <% @upcoming_events.each do |event_obj| %>
+      <%= event_obj.name %>
+    <% end %>
+  </ul>
+
+  <h1>Past Events</h1>
+
+  <h1>Recipes</h1>
+  <ul>
+    <% @user.recipes[0..2].each do |recipe_obj| %>
+      <%= recipe_obj.name %>
+    <% end %>
+  </ul>
+
+  <%link_to "More Recipes>>>"%>
+<% end %>

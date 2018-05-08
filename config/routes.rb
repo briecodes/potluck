@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   post "/logout", to: "sessions#destroy", as: "log_out"
 
   # For details on the DSL available within this file, see http://gu vbides.rubyonrails.org/routing.html
+
+  #Special custom routes to join and/or leave event
+  post "/events/:id/join", to: "events#join_event"
+  post "/events/:id/leave", to: "events#leave_event"
+
 end
