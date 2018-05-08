@@ -1,6 +1,5 @@
 class RecipesController < ApplicationController
   before_action :get_recipe, only: [:show, :edit, :update, :destroy]
-  
   def index
     @recipes = Recipe.all
   end
@@ -16,7 +15,8 @@ class RecipesController < ApplicationController
     @ingredients = Ingredient.all
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
-      redirect_to recipes_path
+      current_user.recipes << @recipe
+      redirect_to user_path(current_user)
     else
       render :new
     end
