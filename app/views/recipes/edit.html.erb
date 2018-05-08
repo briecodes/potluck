@@ -1,2 +1,2 @@
 <h1>Edit Recipe Form</h1>
-<%= render "form" %>
+<%= render "form", post_url: recipe_path(@recipe.id), method: "patch" %>

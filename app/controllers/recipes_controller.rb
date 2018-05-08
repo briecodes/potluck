@@ -1,27 +1,40 @@
 class RecipesController < ApplicationController
+  before_action :get_recipe, only: [:show, :edit, :update, :destroy]
   def index
     @recipes = Recipe.all
   end
   def show
-    @recipe = Recipe.find(params[:id])
+
   end
   def new
     @recipe = Recipe.new
+    @ingredients = Ingredient.all
   end
 
   def create
+    # byebug
     @recipe = Recipe.create(recipe_params)
+    redirect_to recipes_path
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    @ingredients = Ingredient.all
+  end
+
+  def update
+    @recipe.update(recipe_params)
+    redirect_to recipe_path(@recipe)
   end
 
   def destroy
-
+    @recipe.destroy
+    redirect_to recipes_path
   end
   private
   def recipe_params
-    params.require(:recipe).permit(:name, :details, :user_id)
+    params.require(:recipe).permit(:name, :details, :user_id, ingredient_ids:[])
+  end
+  def get_recipe
+    @recipe = Recipe.find(params[:id])
   end
 end
