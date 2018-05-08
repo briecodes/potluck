@@ -1,0 +1,15 @@
+<% if flash[:errors] %>
+    <ul>
+        <% flash[:errors].each do |error| %>
+            <li>
+                <%= error %>.
+            </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @ingredient do |t| %>
+    <%= t.label :name %>: 
+    <%= t.text_field :name, class:"form-control" %><br><br>
+    <%= t.submit %>
+<% end %>

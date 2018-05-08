@@ -44,15 +44,15 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:username, :name, :password, :password_confirmation)
-  end
+    def user_params
+      params.require(:user).permit(:username, :name, :password, :password_confirmation)
+    end
 
-  def upcoming_events
-    @user.events.sort_by
-  end
+    def upcoming_events
+      @user.events.sort_by
+    end
 
-  def get_user
-    @user = User.find(params[:id])
-  end
+    def get_user
+      @user = User.find(params[:id])
+    end
 end
