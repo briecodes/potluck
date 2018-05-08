@@ -1,0 +1,9 @@
+<h1><%= @recipe.name %></h1>
+<p><%= @recipe.details %></p>
+<p>Ingredients:</p>
+<% @recipe.ingredients.each do |i| %>
+  <p><%=link_to i.name, i %></p>
+<% end %>
+<%= button_to "delete", {:controller => :recipes,
+      :action => 'destroy', :id => @recipe.id }, :method => :delete %>
+<a href='/recipes'>Back</a>

@@ -1,0 +1,7 @@
+<% if @recipe.errors.any? %>
+  <% @recipe.errors.full_messages.each do |msg| %>
+  <p><%= msg %></p>
+  <% end %>
+<% end %>
+<h1>New Recipe Form</h1>
+<%= render "form", post_url: recipes_path %>
