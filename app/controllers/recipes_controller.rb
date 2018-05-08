@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :get_recipe, only: [:show, :edit, :update, :destroy]
+  
   def index
     @recipes = Recipe.all
   end

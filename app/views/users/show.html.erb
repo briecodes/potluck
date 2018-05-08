@@ -9,11 +9,16 @@
   <h1>Past Events</h1>
 
   <h1>Recipes</h1>
-  <ul>
-    <% @user.recipes[0..2].each do |recipe_obj| %>
-      <%= recipe_obj.name %>
-    <% end %>
-  </ul>
+  <% if @recipes.length > 0 %>
+    <ul>
+      <% @recipes.each do |recipe_obj| %>
+        <%= recipe_obj.name %>
+      <% end %>
+    </ul>
+    <% link_to "More Recipes>>>" recipes_path %>
 
-  <%link_to "More Recipes>>>"%>
+  <% else %>
+    <h3>None</h3>
+    <%= link_to "Add a recipe", new_recipe_path%>
+  <% end %>
 <% end %>

@@ -21,5 +21,6 @@
   <%= e.label :details %>
   <%= e.text_area :details %> <br>
 
+  <%= e.collection_select :recipe_ids @recipes :id :name %>
   <%= e.submit %>
 <% end %>
