@@ -1,10 +1,16 @@
 class UsersController < ApplicationController
   before_action(:get_user, only:[:show, :edit, :update, :destroy])
 
-  def show
-    #@upcoming_events = Event.where("user_id = ?", @user.id).order("date ASC")
-    @upcoming_events = User.joins("INNER JOIN user_events ON user_events.user_id = users.id")
+  def index
     @user = User.find(session[:user_id])
+    redirect_to user_path(@user)
+  end
+
+  def show
+    @user = User.find(session[:user_id])
+    #@upcoming_events = Event.where("user_id = ?", @user.id).order("date ASC")
+    # Ahamed, the following can be used: @upcoming_events = @user.events
+    @events = @user.events
     @recipes = @user.recipes[0..2]
   end
 
@@ -45,15 +51,15 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:username, :name, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:username, :name, :password, :password_confirmation)
+  end
 
-    def upcoming_events
-      @user.events.sort_by
-    end
+  def upcoming_events
+    @user.events.sort_by
+  end
 
-    def get_user
-      @user = User.find(params[:id])
-    end
+  def get_user
+    @user = User.find(params[:id])
+  end
 end

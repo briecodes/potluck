@@ -1,28 +1,35 @@
 <h1><%= @event.title %> </h1><br>
 
 <h3>Recipes: </h3> <br>
-<ul>
-  <% @event.recipes.each do |recipe_obj| %>
-    <li><%= recipe_obj.name %> by <%= recipe_obj.user.name %></li>
-  <% end %>
-</ul>
 
-If the current user is not in the event, then display the join event button
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Recipe Name</th>
+      <th scope="col">Person</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @event.recipes.each_with_index do |recipe_obj, index| %>
+      <tr>
+        <th scope="row"><%index + 1%></th>
+        <td>recipe_obj.name</td>
+        <td>recipe_obj.user.name</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<% if @user.events.include?(@event) %>
+
+<% if !@user.events.include?(@event) %>
   <%= form_tag({controller: "events", method: "post", action: "join_event"}) do %>
     <%= submit_tag "Join Event"%>
   <% end %>
 <% end %>
 
-
-<%= form_tag({controller: "events", method: "post", action: "leave_event"}) do %>
-  <%= submit_tag "Leave Event"%>
+<% if @user.events.include?(@event) %>
+  <%= form_tag({controller: "events", method: "post", action: "leave_event"}) do %>
+    <%= submit_tag "Leave Event"%>
+  <% end %>
 <% end %>
-
-Make sure they cannot edit and/or delete other people's events
-If the user has this event,
-  -then display the edit and delete and leave button and do not display the join button because
-they have automatically join event they create
-
-if logged_in && current_user.events.include?(@event)

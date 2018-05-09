@@ -1,27 +1,28 @@
 <html>
   <body>
+    <%= link_to "Create an Account", sign_up_path %>
     <div id="main-container" class="container-fluid">
       <div class="row">
+        <div id="content" class="col-md-4"></div>
         <div id="content" class="col-md-4">
-        </div>
-        <div id="content" class="col-md-4">
-          <h4 class="text-left"> Ptlk_Planner </h4>  <h6 class="text-right"> Your Flatiron Potluck Planner. </h6>
-          <form role="form">
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username" class="form-control" />
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" class="form-control" />
-  </div>
+          <h4 class="text-left"> Ptlk_Planner </h4>
+          <h6 class="text-right"> Your Flatiron Potluck Planner. </h6>
 
-  <input type="submit" value="Login" />
-  <input type="button" value="Cancel" />
-</form>
+          <%= form_for User.new, url: sessions_path, method: :post do |t| %>
+            <div class="form-group">
+                <%= t.label :username %> 
+                <%= t.text_field :username, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= t.label :password %> 
+              <%= t.password_field :password, class: "form-control" %>
+            </div>
+
+            <%= t.submit %>
+          <% end %>
+
         </div>
-        <div id="content" class="col-md-4">
-        </div>
+          <div id="content" class="col-md-4"></div>
       </div>
     </div>
   </body>
