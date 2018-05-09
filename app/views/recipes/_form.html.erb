@@ -2,9 +2,9 @@
 
 <%= form_for @recipe, url: post_url do |f| %>
   <div class="row">
-    <div id="content" class="col-sm-1">
+    <div id="content" class="col-sm-3">
     </div>
-    <div id="content" class="col-md-4">
+    <div id="content" class="col-md-6">
       <div class="form-group">
 
         <%= f.label :name %>
@@ -17,10 +17,10 @@
       <%= f.label :ingredients %>
       <div class="dropdown">
         <div id=myDropdown class="dropdown-content">
-          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()" class="form-control">
+          <input type="text" placeholder="Search..." id="myInput" onkeyup="filterFunction()" class="form-control">
           <div style="height:100px;overflow:auto;margin-bottom:25px;margin-top:10px;">
 
-            <%= f.collection_check_boxes :ingredient_ids, @ingredients, :id, :name do |b| %>
+            <%= f.collection_check_boxes :ingredient_ids, @ingredients.order('name ASC'), :id, :name do |b| %>
               <li>
                 <%= b.check_box %> <%= b.label %>
               </li>
@@ -31,7 +31,7 @@
       </div>
       <%= f.submit class: "btn btn-default", id: "success-btn"%>
     </div>
-    <div id="content" class="col-md-4">
+    <div id="content" class="col-md-3">
     </div>
   </div>
 <% end %>

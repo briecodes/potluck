@@ -1,7 +1,16 @@
-<% if @recipe.errors.any? %>
-  <% @recipe.errors.full_messages.each do |msg| %>
-  <p><%= msg %></p>
-  <% end %>
-<% end %>
-<h1>New Recipe Form</h1>
+    <div id="main-container" class="container-fluid">
+      <row>
+        <div id="content" class="col-sm-3">
+        </div>
+        <div id="content" class="col-sm-6">
+          <% if @recipe.errors.any? %>
+            <% @recipe.errors.full_messages.each do |msg| %>
+            <p><%= msg %></p>
+            <% end %>
+          <% end %>
+            <h2>Add a Recipe</h2>
+        </div>
+        <div id="content" class="col-sm-3">
+        </div>
+      </div>
 <%= render "form", post_url: recipes_path %>
