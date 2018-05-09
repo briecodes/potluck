@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new', as: "log_in"
   post "/sessions", to: "sessions#create", as: "sessions"
   post "/logout", to: "sessions#destroy", as: "log_out"
+  post '/eventrecipes', to: "event_recipes#new"
 
   # For details on the DSL available within this file, see http://gu vbides.rubyonrails.org/routing.html
 
