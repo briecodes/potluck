@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
   before_action(:get_event, only:[:show, :edit, :update, :destroy, :join_event, :leave_event])
+  before_action(:get_recipes, only: [:new, :create, :edit, :update])
 
   def index
-    # if !logged_in
-    #   redirect_to log_in_path
-    # end
+    if !logged_in
+      redirect_to log_in_path
+    end
     @events = Event.all
   end
 
@@ -20,7 +21,6 @@ class EventsController < ApplicationController
       redirect_to log_in_path
     end
     @event = Event.new
-    @recipes = User.find(session[:user_id]).recipes
   end
 
   def create
@@ -77,5 +77,10 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :location, :date, :details, recipe_ids: [])
+  end
+
+  def get_recipes
+    @user = User.find(session[:user_id])
+    @recipes = @user.recipes
   end
 end

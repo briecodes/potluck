@@ -2,10 +2,14 @@ class UsersController < ApplicationController
   before_action(:get_user, only:[:show, :edit, :update, :destroy])
 
   def show
-    #@upcoming_events = Event.where("user_id = ?", @user.id).order("date ASC")
-    @upcoming_events = User.joins("INNER JOIN user_events ON user_events.user_id = users.id")
-    @user = User.find(session[:user_id])
-    @recipes = @user.recipes[0..2]
+    if session[:user_id] != @user.id
+      redirect_to log_in_path
+    else
+      #@upcoming_events = Event.where("user_id = ?", @user.id).order("date ASC")
+      @upcoming_events = User.joins("INNER JOIN user_events ON user_events.user_id = users.id")
+      @user = User.find(session[:user_id])
+      @recipes = @user.recipes[0..2]
+    end
   end
 
   def new

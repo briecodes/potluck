@@ -1,16 +1,27 @@
-<h2>Events</h1>
-
 <%= flash[:notice] %>
 
-<% @events.each do |event_obj| %>
-  <ul><strong><%= link_to event_obj.title, event_path(event_obj)%></strong></ul>
-  <li><%= event_obj.location %></li>
-  <li><%= event_obj.date %></li>
-  <li><%= event_obj.details %></li><br>
-
-  <%= link_to "Edit Event", edit_event_path(event_obj) %>
-
-  <%= form_tag(event_obj, method: "delete") do %>
-    <%= submit_tag "Delete Event" %>
+<h2>Events</h1>
+  <% @events.each do |event_obj| %>
+    <div class="row">
+      <div class="col-lg-1">
+        <strong><%= link_to event_obj.title, event_path(event_obj)%></strong>
+      </div>
+      <div class="col-lg-1">
+        <%= event_obj.location %>
+      </div>
+      <div class="col-lg-1">
+        <%= event_obj.date %>
+      </div>
+      <div class="col-lg-1">
+        <%= event_obj.details %>
+      </div>
+      <div class="col-lg-1">
+        <%= link_to "Edit Event", edit_event_path(event_obj) %>
+      </div>
+      <div class="col-lg-1">
+        <%= form_tag(event_obj, method: "delete") do %>
+          <%= submit_tag "Delete Event" %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
-<% end %>

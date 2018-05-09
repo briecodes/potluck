@@ -1,26 +1,3 @@
 <h1> Create a new event </h1>
 
-<ul>
-  <% if flash[:error] %>
-    <% flash[:error].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  <% end %>
-</ul>
-
-<%= form_for @event do |e| %>
-  <%= e.label :title %>
-  <%= e.text_field :title %> <br>
-
-  <%= e.label :location %>
-  <%= e.text_field :location %> <br>
-
-  <%= e.label :date %>
-  <%= e.text_field :date %> <br>
-
-  <%= e.label :details %>
-  <%= e.text_area :details %> <br>
-
-  <%= e.collection_select :recipe_ids @recipes :id :name %>
-  <%= e.submit %>
-<% end %>
+<%= render "common_form" %>
