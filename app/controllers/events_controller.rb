@@ -31,7 +31,7 @@ class EventsController < ApplicationController
     if @event.valid?
       @event.save
       @event.users << User.find(session[:user_id])
-      redirect_to events_path
+      redirect_to user_path(User.find(session[:user_id]))
     else
       flash[:error] = @event.errors.full_messages
       render :new
