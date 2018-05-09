@@ -1,13 +1,15 @@
 <h1><%= @recipe.name %></h1>
 
-<p><%= @recipe.details %></p>
+<h2><%= @recipe.details %></h2>
 
-<p>Ingredients:</p>
+<p><b>Ingredients:</b></p>
 
-<% @recipe.ingredients.each do |i| %>
-  <p><%=link_to i.name, i %></p>
-<% end %>
+<ul>
+  <% @recipe.ingredients.each do |i| %>
+    <li><%=link_to i.name, i %></li>
+  <% end %>
+</ul>
 
-<%= link_to "Edit", edit_recipe_path %><br><br>
+<p><%= link_to "Edit", edit_recipe_path, :class => "btn btn-default" %>
 
-<%= link_to "Back", root_path %>
+<%= link_to "Back", root_path, :class => "btn  btn-default" %></p>
