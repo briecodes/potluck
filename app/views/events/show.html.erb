@@ -1,15 +1,24 @@
 
 <div class="row">
-  <div class="col-sm-1"></div>
-  <div class="col-md-4">
-    <h3><%= @event.title %> </h3>
+  <div class="col-md-2"></div>
+  <div class="col-sm-4">
+
+    <h3><%= @event.title %> <span class="event_small"><span class="slashes">//</span> <%= link_to "edit event", edit_event_path(@event) %></span></h3>
     Date: <%= @event.date.to_formatted_s(:long_ordinal) %><br>
     Location: <%= @event.location %><br><br>
 
     <strong>Details:</strong>
     <p><%= @event.details %></p>
+  </div>
+  <div class="col-sm-4">
+    Another 3-column
+  </div>
+  <div class="col-md-2"></div>
+</div>
 
-    <% if !@user.events.include?(@event) %>
+<%= link_to "Home", root_path %>
+
+<% if !@user.events.include?(@event) %>
       <%= form_tag({controller: "events", method: "post", action: "join_event"}) do %>
         <%= submit_tag "Join Event"%>
       <% end %>
@@ -20,13 +29,3 @@
         <%= submit_tag "Leave Event"%>
       <% end %>
     <% end %>
-
-    <br><br><br>
-
-    <%= link_to "Home", root_path %>
-  </div>
-  <div class="col-md-4">
-    Another 4-column
-  </div>
-  <div class="col-md-1"></div>
-</div>
