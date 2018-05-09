@@ -20,7 +20,6 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.valid?
-      session[:user_id] = @user.id
       redirect_to @user
     else
       flash[:errors] = @user.errors.full_messages
@@ -49,15 +48,15 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:username, :name, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:username, :name, :password, :password_confirmation)
+  end
 
-    def upcoming_events
-      @user.events.sort_by
-    end
+  def upcoming_events
+    @user.events.sort_by
+  end
 
-    def get_user
-      @user = User.find(params[:id])
-    end
+  def get_user
+    @user = User.find(params[:id])
+  end
 end
