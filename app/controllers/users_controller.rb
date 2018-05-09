@@ -1,15 +1,17 @@
 class UsersController < ApplicationController
   before_action(:get_user, only:[:show, :edit, :update, :destroy])
 
+  def index
+    @user = User.find(session[:user_id])
+    redirect_to user_path(@user)
+  end
+
   def show
-    if session[:user_id] != @user.id
-      redirect_to log_in_path
-    else
-      #@upcoming_events = Event.where("user_id = ?", @user.id).order("date ASC")
-      @upcoming_events = User.joins("INNER JOIN user_events ON user_events.user_id = users.id")
-      @user = User.find(session[:user_id])
-      @recipes = @user.recipes[0..2]
-    end
+    @user = User.find(session[:user_id])
+    #@upcoming_events = Event.where("user_id = ?", @user.id).order("date ASC")
+    # Ahamed, the following can be used: @upcoming_events = @user.events
+    @upcoming_events = User.joins("INNER JOIN user_events ON user_events.user_id = users.id")
+    @recipes = @user.recipes[0..2]
   end
 
   def new
@@ -20,6 +22,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.valid?
+      session[:user_id] = @user.id
       redirect_to @user
     else
       flash[:errors] = @user.errors.full_messages
