@@ -21,6 +21,7 @@ class EventsController < ApplicationController
     end
     @event = Event.new
     @recipes = User.find(session[:user_id]).recipes
+    @user = User.find(session[:user_id])
   end
 
   def create

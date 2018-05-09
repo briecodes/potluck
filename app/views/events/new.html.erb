@@ -21,6 +21,8 @@
   <%= e.label :details %>
   <%= e.text_area :details %> <br>
 
-  <%= e.collection_select :recipe_ids @recipes :id :name %>
+  <%if @user.recipes.length > 0%>
+    <%= e.collection_select :recipe_ids, @recipes ,:id, :name %>
+  <% end %>
   <%= e.submit %>
 <% end %>
