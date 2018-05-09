@@ -47,3 +47,23 @@ body {
 .slashes {
     color: #C7C8CA;
 }
+
+.event_small {
+    font-size: .5em;
+}
+
+a:link {
+    color: #3FA9F5;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #3FA9F5;
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+a:visited {
+    color: #3FA9F5;
+    text-decoration: none;
+}
