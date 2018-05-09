@@ -2,9 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// #recipe_form {
-//     display: none;
-//   }
+
 
 .collapse a{
     display: block;
@@ -16,4 +14,17 @@
 
 .collapse > div:target{
     display: block;
+}
+
+#danger-btn {
+  background-color: #B33115;
+}
+
+#warning-btn {
+  background-color: #C17B1D;
+  color: black;
+}
+
+#success-btn {
+  background-color: #559521;
 }
