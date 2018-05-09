@@ -6,7 +6,7 @@
     </div>
     <div id="content" class="col-md-4">
       <div class="form-group">
-        
+
         <%= f.label :name %>
         <%= f.text_field :name, class: "form-control"%><br>
       </div>
@@ -25,11 +25,11 @@
                 <%= b.check_box %> <%= b.label %>
               </li>
             <% end %>
-            
+
           </div>
         </div>
       </div>
-      <%= f.submit %>
+      <%= f.submit class: "btn btn-default", id: "success-btn"%>
     </div>
     <div id="content" class="col-md-4">
     </div>

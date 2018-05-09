@@ -33,7 +33,7 @@
             <% end %>
           </ul>
           <% if session[:user_id] == @user.id %>
-          <%= link_to "Add a recipe", new_recipe_path, :class => "btn btn-default"%>
+          <%= link_to "Add a recipe", new_recipe_path, class: "btn btn-default", id: "success-btn"%>
         </div>
         <div id="content" class="col-md-2">
         </div>
