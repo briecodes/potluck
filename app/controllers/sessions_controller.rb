@@ -5,6 +5,12 @@ class SessionsController < ApplicationController
     end
   end
 
+  def welcome
+    if logged_in
+      redirect_to user_path(session[:user_id])
+    end
+  end
+
   def create
     @user = User.find_by(username: params[:username])
 
