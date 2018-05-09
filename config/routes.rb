@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post "/sessions", to: "sessions#create", as: "sessions"
   post "/logout", to: "sessions#destroy", as: "log_out"
   post '/eventrecipes', to: "event_recipes#new"
+  delete '/eventrecipes', to: "event_recipes#destroy"
 
   # For details on the DSL available within this file, see http://gu vbides.rubyonrails.org/routing.html
 
