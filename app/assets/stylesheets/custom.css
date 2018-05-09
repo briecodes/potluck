@@ -5,10 +5,9 @@ body {
 
 #navbar {
     font-size: 14px;
-    width: 75%;
-    margin-left: 25%;
-    margin-right: 25%;
+    width: 100%;
     margin-bottom: 50px;
+    margin-top: 25px;
 }
 
 .divider {
