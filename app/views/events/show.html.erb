@@ -1,25 +1,12 @@
 <h1><%= @event.title %> </h1><br>
 
-<h3>Recipes: </h3> <br>
+<h3>Location:</h3>
+<%= @event.location %>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Recipe Name</th>
-      <th scope="col">Person</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @event.recipes.each_with_index do |recipe_obj, index| %>
-      <tr>
-        <th scope="row"><%index + 1%></th>
-        <td>recipe_obj.name</td>
-        <td>recipe_obj.user.name</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h3>Date:</h3>
+<%= @event.date.to_formatted_s(:long_ordinal) %>
+<h3>Details:</h3>
+<%= @event.details %>
 
 
 <% if !@user.events.include?(@event) %>
