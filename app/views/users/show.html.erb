@@ -14,6 +14,10 @@
               <% end %>
             <% end %>
           </ul>
+          <% if @user.events.length == 0  %>
+          <%= link_to "Explore Events", new_recipe_path, :class => "btn btn-default"%>
+          <% end %>
+          <div style="padding: 5px"></div>
           <div style="background-color: #F2F2F2; padding: 7px">
             <h4 style="color: #00AEEF">Past Events</h4>
           </div>
