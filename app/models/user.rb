@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :events, through: :user_events
 
   validates :username, uniqueness: true
+  validates :username, format: { without: /\s/ }
 end
