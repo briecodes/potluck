@@ -1,24 +1,31 @@
-<h1><%= @event.title %> </h1><br>
 
-<h3>Location:</h3>
-<%= @event.location %>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-sm-4">
 
-<h3>Date:</h3>
-<%= @event.date.to_formatted_s(:long_ordinal) %>
-<h3>Details:</h3>
-<%= @event.details %>
+    <h3><%= @event.title %> <span class="event_small"><span class="slashes">//</span> <%= link_to "edit event", edit_event_path(@event) %></span></h3>
+    Date: <%= @event.date.to_formatted_s(:long_ordinal) %><br>
+    Location: <%= @event.location %><br><br>
 
+    <strong>Details:</strong>
+    <p><%= @event.details %></p>
+  </div>
+  <div class="col-sm-4">
+    Another 3-column
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<%= link_to "Home", root_path %>
 
 <% if !@user.events.include?(@event) %>
-  <%= form_tag({controller: "events", method: "post", action: "join_event"}) do %>
-    <%= submit_tag "Join Event"%>
-  <% end %>
-<% end %>
+      <%= form_tag({controller: "events", method: "post", action: "join_event"}) do %>
+        <%= submit_tag "Join Event"%>
+      <% end %>
+    <% end %>
 
-<% if @user.events.include?(@event) %>
-  <%= form_tag({controller: "events", method: "post", action: "leave_event"}) do %>
-    <%= submit_tag "Leave Event"%>
-  <% end %>
-<% end %>
-<br><br><br>
-<%= link_to "Home", root_path %>
+    <% if @user.events.include?(@event) %>
+      <%= form_tag({controller: "events", method: "post", action: "leave_event"}) do %>
+        <%= submit_tag "Leave Event"%>
+      <% end %>
+    <% end %>
