@@ -13,13 +13,22 @@
           <h4 style="color: #00aeef">Upcoming Events</h4>
         </div>
           <ul style="list-style-type:none">
-            <% @upcoming_events.each do |event_obj| %>
-              <%= event_obj.name %>
+            <% @events.each do |event| %>
+            <% if event.date > DateTime.now %>
+              <%= link_to "#{event.title} >", event%>
+              <% end %>
             <% end %>
           </ul>
           <div style="background-color: #E8E8E8; padding: 7px">
             <h4 style="color: #00aeef">Past Events</h4>
           </div>
+          <ul style="list-style-type:none">
+            <% @events.each do |event| %>
+            <% if event.date < DateTime.now %>
+              <%= link_to "#{event.title} >", event%>
+              <% end %>
+            <% end %>
+          </ul>
           <div style="background-color: #E8E8E8; padding: 7px">
             <h4 style="color: #00aeef">Recipes</h4>
           </div>
