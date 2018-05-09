@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action(:get_user, only:[:show, :edit, :update, :destroy])
 
+  def index
+    @user = User.find(session[:user_id])
+    redirect_to user_path(@user)
+  end
+
   def show
     @user = User.find(session[:user_id])
     #@upcoming_events = Event.where("user_id = ?", @user.id).order("date ASC")
