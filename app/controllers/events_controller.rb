@@ -55,7 +55,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    flash[:notice] = "Event has been deleted. Go to self page to create a new event"
+    flash[:notice] = "Event has been deleted. Go home to create a new event"
     redirect_to events_path
   end
 
