@@ -18,7 +18,12 @@
           Welcome, <%= @nav_user.name %> // <%= link_to "Logout", log_out_path, :method => "POST" %>
         </div>
         <div class="divider"></div>
-        <%= link_to "Home", user_path(current_user), :class => "nav-item nav-link" %> // <%= link_to "Make New Recipe", new_recipe_path, :class => "nav-item nav-link" %> // <%= link_to "Make New Event", new_event_path, :class => "nav-item nav-link" %> // <%= link_to "Explore Events", events_path, :class => "nav-item nav-link" %>
+        <%= link_to "Home", user_path(current_user), :class => "nav-item nav-link" %> //
+        <%= link_to "Make New Recipe", new_recipe_path, :class => "nav-item nav-link" %> //
+        <%= link_to "Make New Event", new_event_path, :class => "nav-item nav-link" %> //
+        <%= link_to "Explore Events", events_path, :class => "nav-item nav-link" %> //
+        <%= link_to "Make a New Ingredient", new_ingredient_path, :class => "nav-item nav-link" %> //
+        <%= link_to "Edit Profile", edit_user_path(current_user), :class => "nav-item nav-link" %>
       </div>
     <% end %>
 
