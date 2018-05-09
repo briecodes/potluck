@@ -8,9 +8,9 @@
 
 <%= form_for @event do |e| %>
   <div class="row">
-    <div id="content" class="col-sm-1">
+    <div id="content" class="col-sm-3">
     </div>
-    <div id="content" class="col-md-4">
+    <div id="content" class="col-md-6">
       <div class="form-group">
         <%= e.label :title %>
         <%= e.text_field :title, class: "form-control" %> <br>
@@ -33,7 +33,7 @@
       <div>
         <%= e.submit class: "btn btn-default", id:"success-btn" %>
       </div>
-      <div id="content" class="col-md-4">
+      <div id="content" class="col-md-3">
       </div>
     </div>
   </div>

@@ -16,7 +16,7 @@
           </ul>
       <% if @user.events.length == 0 && session[:user_id] == @user.id %>
           <%= link_to "Explore Events", new_recipe_path, :class => "btn btn-default"%>
-          <div style="padding-bottom: 10px"> </div>
+          <div style="padding-bottom: 20px"> </div>
       <% end %>
 
       <% if @user.events.length > 0  %>
