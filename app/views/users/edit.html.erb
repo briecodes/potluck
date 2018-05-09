@@ -1,8 +1,7 @@
 <div id="main-container" class="container-fluid">
   <div id="content" class="col-md-2">
   </div>
-  <div id="content" class="col-md-8">=
-    <div style="padding: 7px">
+  <div id="content" class="col-md-8">
 
 <% if session[:user_id] == @user.id %>
   <h3>Edit Profile</h3>
@@ -12,7 +11,9 @@
     <%= u.text_field :name, class: "form-control"%>
     <%= u.label :username %>
     <%= u.text_field :username, class: "form-control"%>
-    <%= u.submit class: "btn btn-default" %>
+    <div style= "padding-top: 10px">
+    </div>
+    <%= u.submit class: "btn btn-default"%>
   <% end %>
 
 <% else %>
