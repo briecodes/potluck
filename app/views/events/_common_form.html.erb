@@ -21,15 +21,14 @@
       </div>
       <div class="form-group">
         <%= e.label :date %>
-        <%= e.text_field :date, class: "form-control" %> <br>
+        <%= e.datetime_select :date, class: "form-control" %> <br>
       </div>
       <div>
         <%= e.label :details %>
         <%= e.text_area :details, class: "form-control", size: "20x5" %> <br>
       </div>
       <div>
-        <%= e.collection_check_boxes :event_recipe_ids, Event.all, :id, :title %> <br>
-        <!-- :recipe_ids, @recipes, :id, :name -->
+        <%= e.collection_check_boxes :recipe_ids, @recipes, :id, :name %> <br>
       </div>
       <div>
         <%= e.submit%>
