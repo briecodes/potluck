@@ -3,12 +3,10 @@
     <% if logged_in %>
       <%= link_to "Logout", log_out_path, method:"post" %>
     <% end %>
-    <% if session[:user_id] == @user.id %>
     <div id="main-container" class="container-fluid">
       <div id="content" class="col-md-2">
       </div>
       <div id="content" class="col-md-8">
-        Welcome <%= @user.name %>
         <div style="background-color: #E8E8E8; padding: 7px">
           <h4 style="color: #00aeef">Upcoming Events</h4>
         </div>
@@ -37,7 +35,8 @@
               <li><%= link_to "#{ recipe_obj.name} >", recipe_obj %></li>
             <% end %>
           </ul>
-          <%= link_to "Add a recipe", new_recipe_path%>
+          <% if session[:user_id] == @user.id %>
+          <%= link_to "Add a recipe", new_recipe_path, :class => "btn btn-default"%>
         </div>
         <div id="content" class="col-md-2">
         </div>
