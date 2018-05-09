@@ -6,8 +6,9 @@ class IngredientsController < ApplicationController
     end
 
     def show
+      @user = current_user
     end
-    
+
     def new
         @ingredient = Ingredient.new
     end
@@ -45,7 +46,7 @@ class IngredientsController < ApplicationController
     def get_ingredients
         @ingredients = Ingredient.all
     end
-    
+
     def get_ingredient
         @ingredient = Ingredient.find(params[:id])
     end
