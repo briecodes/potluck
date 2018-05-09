@@ -9,8 +9,8 @@
       </div>
       <div id="content" class="col-md-8">
         Welcome <%= @user.name %>
-        <div style="background-color: #E8E8E8; padding: 7px">
-          <h4 style="color: #00aeef">Upcoming Events</h4>
+        <div style="background-color: #F2F2F2; padding: 7px">
+          <h4 style="color: #00AEEF">Upcoming Events</h4>
         </div>
           <ul style="list-style-type:none">
             <% @events.each do |event| %>
@@ -19,8 +19,8 @@
               <% end %>
             <% end %>
           </ul>
-          <div style="background-color: #E8E8E8; padding: 7px">
-            <h4 style="color: #00aeef">Past Events</h4>
+          <div style="background-color: #F2F2F2; padding: 7px">
+            <h4 style="color: #00AEEF">Past Events</h4>
           </div>
           <ul style="list-style-type:none">
             <% @events.each do |event| %>
@@ -29,8 +29,8 @@
               <% end %>
             <% end %>
           </ul>
-          <div style="background-color: #E8E8E8; padding: 7px">
-            <h4 style="color: #00aeef">Recipes</h4>
+          <div style="background-color: #F2F2F2; padding: 7px">
+            <h4 style="color: #00AEEF">Recipes</h4>
           </div>
           <ul style="list-style-type:none">
             <% @user.recipes.each do |recipe_obj| %>
