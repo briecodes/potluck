@@ -5,10 +5,9 @@ body {
 
 #navbar {
     font-size: 14px;
-    width: 75%;
-    margin-left: 25%;
-    margin-right: 25%;
+    width: 100%;
     margin-bottom: 50px;
+    margin-top: 25px;
 }
 
 .divider {
@@ -66,4 +65,18 @@ a:hover{
 a:visited {
     color: #3FA9F5;
     text-decoration: none;
+}
+
+#danger-btn {
+  background-color: #B33115;
+}
+
+#warning-btn {
+  background-color: #C17B1D;
+  color: black;
+}
+
+#success-btn {
+  background-color: #559521;
+  color: black;
 }
