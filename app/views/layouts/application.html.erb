@@ -4,15 +4,30 @@
     <title>Potluck</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700" rel="stylesheet">
+    <link rel="stylesheet" media="all" href="/assets/custom.css" >
   </head>
 
   <body>
     <% if logged_in %>
-      <% link_to "Logout", log_out_path %>
+      <div id="navbar">
+        <div id="logo"></div>
+        <div id="welcome_holder">
+          Welcome, <%= @nav_user.name %> // <% link_to "Logout", log_out_path %>
+        </div>
+        <div class="divider"></div>
+      </div>
     <% end %>
+
     <%= yield %>
+
+    <% if logged_in %>
+      <div id="footer">
+        {made with love}
+      </div>
+    <% end %>
+
   </body>
 </html>

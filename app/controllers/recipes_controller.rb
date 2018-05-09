@@ -4,8 +4,9 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
   def show
-
+    @user = User.find(session[:user_id])
   end
+  
   def new
     @recipe = Recipe.new
     @ingredients = Ingredient.all
