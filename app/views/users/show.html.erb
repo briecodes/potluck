@@ -1,5 +1,8 @@
 <html>
   <body>
+    <% if logged_in %>
+      <%= link_to "Logout", log_out_path, method:"post" %>
+    <% end %>
     <% if session[:user_id] == @user.id %>
     <div id="main-container" class="container-fluid">
       <div id="content" class="col-md-2">
