@@ -13,14 +13,16 @@
         <%= event_obj.date %>
       </div>
       <div class="col-lg-1">
-        <%= event_obj.details %>
+        <% if User.find(session[:user_id]).events.include?(event_obj) %>
+            ✔️
+        <% end %>
       </div>
       <div class="col-lg-1">
-        <%= link_to "Edit Event", edit_event_path(event_obj) %>
+        <%= link_to "Edit Event", edit_event_path(event_obj), class: "btn btn-default", id: "warning-btn"%>
       </div>
       <div class="col-lg-1">
         <%= form_tag(event_obj, method: "delete") do %>
-          <%= submit_tag "Delete Event" %>
+          <%= submit_tag "Delete Event", class: "btn btn-default", id: "danger-btn" %>
         <% end %>
       </div>
     </div>

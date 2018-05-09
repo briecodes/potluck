@@ -20,13 +20,13 @@
 
 <% if !@user.events.include?(@event) %>
       <%= form_tag({controller: "events", method: "post", action: "join_event"}) do %>
-        <%= submit_tag "Join Event"%>
+        <%= submit_tag "Join Event", class: "btn btn-default", id: "success-btn"%>
       <% end %>
     <% end %>
 
 <% if @user.events.include?(@event) %>
   <%= form_tag({controller: "events", method: "post", action: "leave_event"}) do %>
-    <%= submit_tag "Leave Event"%>
+    <%= submit_tag "Leave Event", class: "btn btn-default", id: "warning-btn"%>
   <% end %>
 <% end %>
 <br><br><br>
