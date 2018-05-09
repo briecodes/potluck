@@ -11,24 +11,42 @@
     <p><%= @event.details %></p>
   </div>
   <div class="col-sm-4">
-    Another 3-column
-  </div>
-  <div class="col-md-2"></div>
-</div>
-
-<%= link_to "Home", root_path %>
-
-<% if !@user.events.include?(@event) %>
-      <%= form_tag({controller: "events", method: "post", action: "join_event"}) do %>
-        <%= submit_tag "Join Event", class: "btn btn-default", id: "success-btn"%>
+    <div id="attendees">
+      <h4>Attendees (<%= @event.users.size %>)</h4>
+      <% if @event.users.size > 0 %>
+      <ul>
+        <% @event.users.each do |user| %>
+          <li>
+            <%= user.name %>
+          </li>
+        <% end %>
+      </ul>
       <% end %>
-    <% end %>
+    </div>
+    <div id="recipe_form">
+      Here is a recipe form.
+    </div>
+  </div> <!-- col-sm-4 end -->
+  <div class="col-md-2"></div>
+</div> <!-- div "row" end -->
 
-<% if @user.events.include?(@event) %>
-  <%= form_tag({controller: "events", method: "post", action: "leave_event"}) do %>
-    <%= submit_tag "Leave Event", class: "btn btn-default", id: "warning-btn"%>
-  <% end %>
-<% end %>
-<br><br><br>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <br><br>
+    <center>
+      <% if !@user.events.include?(@event) %>
+        <%= form_tag({controller: "events", method: "post", action: "join_event"}) do %>
+          <%= submit_tag "Join Event"%>
+        <% end %>
+      <% end %>
 
-<%= link_to "Home", root_path %>
+      <% if @user.events.include?(@event) %>
+        <%= form_tag({controller: "events", method: "post", action: "leave_event"}) do %>
+          <%= submit_tag "Leave Event"%>
+        <% end %>
+      <% end %>
+    </center>
+  </div> <!-- col-md-4 end -->
+  <div class="col-md-4"></div>
+</div> <!-- div "row" end -->
