@@ -14,6 +14,7 @@ class EventsController < ApplicationController
       redirect_to log_in_path
     end
     @user = User.find(session[:user_id])
+    @eventrecipe = EventRecipe.new
   end
 
   def new
@@ -78,7 +79,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :location, :date, :details, recipe_ids: [])
+    params.require(:event).permit(:title, :location, :date, :details, recipe_ids:[])
   end
 
   def get_recipes

@@ -18,7 +18,11 @@
       <ul>
         <% @event.users.each do |user| %>
           <li>
-            <%= user.name %>
+            <% if user.id == current_user.id %>
+              You!
+            <% else %>
+              <%= user.name %>
+            <% end %>
           </li>
         <% end %>
       </ul>
@@ -27,15 +31,13 @@
     </div>
     
     <div id="recipe_form" class=".collapse">
-      Here is a recipe form. <a href="#attendees"> close me </a>
+      <a href="#attendees"> close me </a>
 
-      <%= form_for @event do |t| %>
-        <%= t.label :recipe_id %>
-
-      <% end %>
-      
-      <% @user.recipes.each do |r| %>
-        <%= r.name %>
+      <%= form_for @eventrecipe, url: events_path do |t| %>
+        <%= t.hidden_field :event_id, value: @event.id %>
+        <%= t.label :recipe_id %>: 
+        <%= t.collection_check_boxes :recipe_id, @user.recipes, :id, :name %><br><br>
+        <%= t.submit "Add dish to Event" %>
       <% end %>
 
     </div>
