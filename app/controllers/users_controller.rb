@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   before_action(:get_user, only:[:show, :edit, :update, :destroy])
 
-
-
   def show
     #@upcoming_events = Event.where("user_id = ?", @user.id).order("date ASC")
     @upcoming_events = User.joins("INNER JOIN user_events ON user_events.user_id = users.id")
+    @user = User.find(session[:user_id])
+    @recipes = @user.recipes[0..2]
   end
 
   def new
@@ -39,20 +39,20 @@ class UsersController < ApplicationController
     @user.destroy
     session.delete(:user_id)
     flash[:notice] = "You account has been deleted from Potluck. Create a new account to continue using our application"
-    #redirect_to login_path
+    redirect_to log_in_path
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:username, :name, :password, :password_confirmation)
-  end
+    def user_params
+      params.require(:user).permit(:username, :name, :password, :password_confirmation)
+    end
 
-  def upcoming_events
-    @user.events.sort_by
-  end
+    def upcoming_events
+      @user.events.sort_by
+    end
 
-  def get_user
-    @user = User.find(params[:id])
-  end
+    def get_user
+      @user = User.find(params[:id])
+    end
 end

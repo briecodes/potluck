@@ -7,4 +7,10 @@
   <li><%= event_obj.location %></li>
   <li><%= event_obj.date %></li>
   <li><%= event_obj.details %></li><br>
+
+  <%= link_to "Edit Event", edit_event_path(event_obj) %>
+
+  <%= form_tag(event_obj, method: "delete") do %>
+    <%= submit_tag "Delete Event" %>
+  <% end %>
 <% end %>

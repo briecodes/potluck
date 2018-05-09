@@ -1,19 +1,36 @@
-<% if session[:user] == @user.id %>
-  <h1>Upcoming Events</h1>
-  <ul>
-    <% @upcoming_events.each do |event_obj| %>
-      <%= event_obj.name %>
+<html>
+  <body>
+    <% if session[:user_id] == @user.id %>
+    <div id="main-container" class="container-fluid">
+      <div id="content" class="col-md-2">
+      </div>
+      <div id="content" class="col-md-8">
+        Welcome <%= @user.name %>
+        <div style="background-color: #E8E8E8; padding: 7px">
+          <h4 style="color: #00aeef">Upcoming Events</h4>
+        </div>
+          <ul style="list-style-type:none">
+            <% @upcoming_events.each do |event_obj| %>
+              <%= event_obj.name %>
+            <% end %>
+          </ul>
+          <div style="background-color: #E8E8E8; padding: 7px">
+            <h4 style="color: #00aeef">Past Events</h4>
+          </div>
+          <div style="background-color: #E8E8E8; padding: 7px">
+            <h4 style="color: #00aeef">Recipes</h4>
+          </div>
+          <ul style="list-style-type:none">
+            <% @user.recipes.each do |recipe_obj| %>
+              <li><%= link_to "#{ recipe_obj.name} >", recipe_obj %></li>
+            <% end %>
+          </ul>
+          <%= link_to "Add a recipe", new_recipe_path%>
+        </div>
+        <div id="content" class="col-md-2">
+        </div>
+      </div>
+    </div>
     <% end %>
-  </ul>
-
-  <h1>Past Events</h1>
-
-  <h1>Recipes</h1>
-  <ul>
-    <% @user.recipes[0..2].each do |recipe_obj| %>
-      <%= recipe_obj.name %>
-    <% end %>
-  </ul>
-
-  <%link_to "More Recipes>>>"%>
-<% end %>
+  </body>
+</html>

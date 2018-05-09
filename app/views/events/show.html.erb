@@ -7,15 +7,14 @@
   <% end %>
 </ul>
 
-<%= link_to "Edit Event", edit_event_path(@event)%>
+If the current user is not in the event, then display the join event button
 
-<%= form_tag(@event, method: "delete") do %>
-  <%= submit_tag "Delete Event" %>
+<% if @user.events.include?(@event) %>
+  <%= form_tag({controller: "events", method: "post", action: "join_event"}) do %>
+    <%= submit_tag "Join Event"%>
+  <% end %>
 <% end %>
 
-<%= form_tag({controller: "events", method: "post", action: "join_event"}) do %>
-  <%= submit_tag "Join Event"%>
-<% end %>
 
 <%= form_tag({controller: "events", method: "post", action: "leave_event"}) do %>
   <%= submit_tag "Leave Event"%>
