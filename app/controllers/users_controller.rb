@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(session[:user_id])
     #@upcoming_events = Event.where("user_id = ?", @user.id).order("date ASC")
+    # Ahamed, the following can be used: @upcoming_events = @user.events
     @upcoming_events = User.joins("INNER JOIN user_events ON user_events.user_id = users.id")
     @recipes = @user.recipes[0..2]
   end
