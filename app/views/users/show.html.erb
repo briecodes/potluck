@@ -4,6 +4,10 @@
       <div id="content" class="col-md-2">
       </div>
       <div id="content" class="col-md-8">
+        <div style="padding: 7px">
+          <h2><%= @user.name %></h2>
+        </div>
+
         <div style="background-color: #F2F2F2; padding: 7px">
           <h4 style="color: #00AEEF">Upcoming Events</h4>
         </div>
@@ -15,7 +19,7 @@
             <% end %>
           </ul>
       <% if @user.events.length == 0 && session[:user_id] == @user.id %>
-          <%= link_to "Explore Events", new_recipe_path, :class => "btn btn-default"%>
+          <%= link_to "Explore Events >", new_recipe_path, :class => "btn btn-default"%>
           <div style="padding-bottom: 20px"> </div>
       <% end %>
 
@@ -42,7 +46,7 @@
             <% end %>
           </ul>
           <% if session[:user_id] == @user.id %>
-          <%= link_to "Add a recipe", new_recipe_path, class: "btn btn-default", id: "success-btn"%>
+          <%= link_to "Add a recipe >", new_recipe_path, :class => "btn btn-default"%>
         </div>
         <div id="content" class="col-md-2">
         </div>
