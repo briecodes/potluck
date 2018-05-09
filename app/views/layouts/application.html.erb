@@ -16,16 +16,16 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
           <div id="navbar">
-            <div id="logo"></div>
+            <div id="logo"><%= link_to (image_tag("logo.png", :alt => "Logo- press to go home", size: "250x50")), root_path %></div>
             <div id="welcome_holder">
               Welcome, <%= @nav_user.name %> <span class="slashes">//</span> <%= link_to "Logout", log_out_path, :method => "POST" %>
             </div>
             <div class="divider"></div>
-            <%= link_to "Home", user_path(current_user), :class => "nav-item nav-link" %> <span class="slashes">//</span>
-            <%= link_to "Make New Recipe", new_recipe_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
-            <%= link_to "Make New Event", new_event_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
-            <%= link_to "Explore Events", events_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
-            <%= link_to "Make a New Ingredient", new_ingredient_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
+            <!-- <%= link_to "Home", user_path(current_user), :class => "nav-item nav-link" %> <span class="slashes">//</span> -->
+            <%= link_to "Add a Recipe", new_recipe_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
+            <%= link_to "Create a new Potluck", new_event_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
+            <%= link_to "Explore Potlucks", events_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
+            <%= link_to "Add a New Ingredient", new_ingredient_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
             <%= link_to "Edit Profile", edit_user_path(current_user), :class => "nav-item nav-link" %>
           </div>
         </div> <!-- end .col-md-8 -->

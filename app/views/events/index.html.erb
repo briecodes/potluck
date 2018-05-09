@@ -1,6 +1,6 @@
 <%= flash[:notice] %>
 
-<h2>Events</h1>
+<h2>Potlucks</h1>
   <% @events.each do |event_obj| %>
     <div class="row">
       <div class="col-lg-1">
@@ -18,11 +18,11 @@
         <% end %>
       </div>
       <div class="col-lg-1">
-        <%= link_to "Edit Event", edit_event_path(event_obj), class: "btn btn-default", id: "warning-btn"%>
+        <%= link_to "Edit Potluck", edit_event_path(event_obj), class: "btn btn-default", id: "warning-btn"%>
       </div>
       <div class="col-lg-1">
         <%= form_tag(event_obj, method: "delete") do %>
-          <%= submit_tag "Delete Event", class: "btn btn-default", id: "danger-btn" %>
+          <%= submit_tag "Delete Potluck", class: "btn btn-default", id: "danger-btn" %>
         <% end %>
       </div>
     </div>

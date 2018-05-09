@@ -9,7 +9,7 @@
         </div>
 
         <div style="background-color: #F2F2F2; padding: 7px">
-          <h4 style="color: #00AEEF">Upcoming Events</h4>
+          <h4 style="color: #00AEEF">Upcoming Potlucks</h4>
         </div>
           <ul style="list-style-type:none; padding-top: 10px">
             <% @events.each do |event| %>
@@ -19,13 +19,13 @@
             <% end %>
           </ul>
       <% if @user.events.length == 0 && session[:user_id] == @user.id %>
-          <%= link_to "Explore Events >", new_recipe_path, :class => "btn btn-default"%>
+          <%= link_to "Explore Potlucks >", new_recipe_path, :class => "btn btn-default"%>
           <div style="padding-bottom: 20px"> </div>
       <% end %>
 
       <% if @user.events.length > 0  %>
           <div style="background-color: #F2F2F2; padding: 7px">
-            <h4 style="color: #00AEEF">Past Events</h4>
+            <h4 style="color: #00AEEF">Past Potlucks</h4>
           </div>
 
           <ul style="list-style-type:none; padding-top: 10px">
