@@ -19,23 +19,35 @@
         <% @event.users.each do |user| %>
           <li>
             <% if user.id == current_user.id %>
-              You!
+              You <span class="slashes">//</span>
             <% else %>
-              <%= user.name %>
+              <%= user.name %> <span class="slashes">//</span>
             <% end %>
+            <% user.recipes.each do |dish| %>
+                <% if @event.recipes.include?(dish) %>
+                  <%= link_to "x", eventrecipes_path(d_id: [dish], e_id: @event.id), :method => :delete %> <%= dish.name %>
+                <% else %>
+                  Add a dish
+                <% end %>
+              <% end %>
           </li>
         <% end %>
       </ul>
       <% end %>
-      <a href="#recipe_form">close attendees</a>
+      <!-- <a href="#recipe_form">close attendees</a> -->
     </div>
+    <br><br>
+    <h4>Dishes being Brought:</h4>
+    <% @event.recipes.each do |d| %>
+      <%= d.name %>
+    <% end %>
 
-    <div id="recipe_form" class=".collapse">
-      <a href="#attendees"> close me </a>
+    <div id="recipe_form" class=".collapse" style="margin-top:20px;">
+      <!-- <a href="#attendees"> close me </a> -->
 
       <%= form_for @eventrecipe, url: eventrecipes_path do |t| %>
         <%= t.hidden_field :event_id, value: @event.id %>
-        <%= t.label :recipe_id %>:
+        <%= t.label "Your Dishes" %>:<br>
         <%= t.collection_check_boxes :recipe_id, @user.recipes, :id, :name %><br><br>
         <%= t.submit "Add dish to Event" %>
       <% end %>
