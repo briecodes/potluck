@@ -14,6 +14,7 @@ class RecipesController < ApplicationController
   def create
     @ingredients = Ingredient.all
     @recipe = Recipe.new(recipe_params)
+    @recipe.user_id = session[:user_id]
     if @recipe.save
       current_user.recipes << @recipe
       redirect_to user_path(current_user)
