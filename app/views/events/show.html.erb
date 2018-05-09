@@ -11,7 +11,7 @@
     <p><%= @event.details %></p>
   </div>
   <div class="col-sm-4">
-    <div id="attendees">
+    <div id="attendees" class=".collapse">
       <h4>Attendees (<%= @event.users.size %>)</h4>
       <% if @event.users.size > 0 %>
       <ul>
@@ -22,9 +22,10 @@
         <% end %>
       </ul>
       <% end %>
+      <a href="#recipe_form">close attendees</a>
     </div>
-    <div id="recipe_form">
-      Here is a recipe form.
+    <div id="recipe_form" class=".collapse">
+      Here is a recipe form. <a href="#attendees"> close me </a>
     </div>
   </div> <!-- col-sm-4 end -->
   <div class="col-md-2"></div>
@@ -37,13 +38,13 @@
     <center>
       <% if !@user.events.include?(@event) %>
         <%= form_tag({controller: "events", method: "post", action: "join_event"}) do %>
-          <%= submit_tag "Join Event"%>
+          <%= submit_tag "Join Event", class: "btn btn-default", id: "success-btn"%>
         <% end %>
       <% end %>
 
       <% if @user.events.include?(@event) %>
         <%= form_tag({controller: "events", method: "post", action: "leave_event"}) do %>
-          <%= submit_tag "Leave Event"%>
+          <%= submit_tag "Leave Event", class: "btn btn-default", id: "warning-btn"%>
         <% end %>
       <% end %>
     </center>

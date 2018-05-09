@@ -1,3 +1,28 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.collapse a{
+    display: block;
+}
+
+.collapse > div {
+    display: none;
+}
+
+.collapse > div:target{
+    display: block;
+}
+
+#danger-btn {
+  background-color: #B33115;
+}
+
+#warning-btn {
+  background-color: #C17B1D;
+  color: black;
+}
+
+#success-btn {
+  background-color: #559521;
+}
