@@ -1,57 +1,55 @@
-<html>
-  <body>
-    <div id="main-container" class="container-fluid">
-      <div id="content" class="col-md-2">
-      </div>
-      <div id="content" class="col-md-8">
-        <div style="padding: 7px">
-          <h2><%= @user.name %></h2>
-        </div>
+<div id="main-container" class="container-fluid">
+  <div id="content" class="col-md-2"></div>
+  <div id="content" class="col-md-8">
 
-        <div style="background-color: #F2F2F2; padding: 7px">
-          <h4 style="color: #333333">Upcoming Potlucks</h4>
-        </div>
-          <ul style="list-style-type:none; padding-top: 10px; padding-bottom: 10px">
-            <% @events.each do |event| %>
-            <% if event.date > DateTime.now %>
-              <li><%= link_to "#{event.title} >", event%></li>
-              <% end %>
-            <% end %>
-          </ul>
-      <% if @user.events.length == 0 && session[:user_id] == @user.id %>
-          <%= link_to "Explore Potlucks >", events_path, :class => "btn btn-default"%>
-          <div style="padding-bottom: 20px"> </div>
-      <% end %>
-
-      <% if @user.events.length > 0  %>
-          <div style="background-color: #F2F2F2; padding: 7px">
-            <h4 style="color: #333333">Past Potlucks</h4>
-          </div>
-
-          <ul style="list-style-type:none; padding-top: 10px">
-            <% @events.each do |event| %>
-            <% if event.date < DateTime.now %>
-              <%= link_to "#{event.title} >", event%>
-              <% end %>
-            <% end %>
-          </ul>
-      <% end %>
-
-          <div style="background-color: #F2F2F2; padding: 7px">
-            <h4 style="color: #333333">Recipes</h4>
-          </div>
-          <ul style="list-style-type:none; padding-top: 10px; padding-bottom: 10px">
-            <% @user.recipes.each do |recipe_obj| %>
-              <li><%= link_to "#{ recipe_obj.name} >", recipe_obj %></li>
-            <% end %>
-          </ul>
-          <% if session[:user_id] == @user.id %>
-          <%= link_to "Add a recipe >", new_recipe_path, :class => "btn btn-default"%>
-        </div>
-        <div id="content" class="col-md-2">
-        </div>
-      </div>
+    <div style="padding: 7px">
+      <h2><%= @user.name %></h2>
     </div>
+
+    <div style="background-color: #F2F2F2; padding: 7px">
+      <h4 style="color: #333333">Upcoming Potlucks</h4>
+    </div>
+
+    <ul style="list-style-type:none; padding-top: 10px; padding-bottom: 10px">
+      <% @events.each do |event| %>
+        <% if event.date > DateTime.now %>
+          <li><%= link_to "#{event.title} >", event%></li>
+        <% end %>
+      <% end %>
+    </ul>
+
+    <% if @user.events.length == 0 && session[:user_id] == @user.id %>
+      <%= link_to "Explore Potlucks >", events_path, :class => "btn btn-default"%>
+      <div style="padding-bottom: 20px"></div>
     <% end %>
-  </body>
-</html>
+
+    <% if @user.events.length > 0  %>
+      <div style="background-color: #F2F2F2; padding: 7px">
+        <h4 style="color: #333333">Past Potlucks</h4>
+      </div>
+
+      <ul style="list-style-type:none; padding-top: 10px">
+        <% @events.each do |event| %>
+          <% if event.date < DateTime.now %>
+            <%= link_to "#{event.title} >", event%>
+          <% end %>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div style="background-color: #F2F2F2; padding: 7px">
+      <h4 style="color: #333333">Recipes</h4>
+    </div>
+
+    <ul style="list-style-type:none; padding-top: 10px; padding-bottom: 10px">
+      <% @user.recipes.each do |recipe_obj| %>
+        <li><%= link_to "#{ recipe_obj.name} >", recipe_obj %></li>
+      <% end %>
+    </ul>
+
+    <% if @user.recipes.length < 1 && session[:user_id] == @user.id %>
+      <%= link_to "Add a recipeeee >", new_recipe_path, :class => "btn btn-default"%>
+    <% end %>
+  </div> <!-- end .col-md-8 -->
+  <div id="content" class="col-md-2"></div>
+</div> <!-- end #main-container -->
