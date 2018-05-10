@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2018_05_07_203446) do
     t.string "title"
     t.string "location"
     t.datetime "date"
+    t.string "timeconvention"
     t.string "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

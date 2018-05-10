@@ -21,7 +21,11 @@
       </div>
       <div class="form-group">
         <%= e.label :date %>
-        <%= e.datetime_select :date, class: "form-control", ampm: true, start_year: Date.today.year, use_short_month: true, date_separator: "/", order: [:day,:month,:year], prompt: { day: 'Day', month: 'Month', year: 'Year' } %> <br>
+        <%= e.datetime_select :date, class: "form-control", start_year: Date.today.year, use_short_month: true, date_separator: "/", order: [:day,:month,:year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, start_hour: 1, end_hour: 12 %>
+        <%= e.label :timeconvention, "AM", :value => "AM"  %>
+        <%= e.radio_button :timeconvention, true %>
+        <%= e.label :timeconvention, "PM", :value => "PM" %>
+        <%= e.radio_button :timeconvention, false, :checked => true %> <br>
       </div>
       <div>
         <%= e.label :details %>
