@@ -81,6 +81,15 @@ body {
     margin-bottom: 10px;
 }
 
+.divider2 {
+    width: 100%;
+    height: 1px;
+    background-color: #c7c8ca;
+    clear: both;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 #welcome_holder{
     float: right;
 }
