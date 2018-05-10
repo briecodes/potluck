@@ -34,5 +34,7 @@ User.create(name: "Shun", username: "theshun", password: "shunthis", password_co
 # Recipe.create(name: "Tumeric Caesar Salad", details: "Not good probably", user_id: @a.id)
 20.times do
   r = Recipe.create(name: Faker::Food.dish, details: Faker::Food.description, user_id: rand(1..5))
-  r.ingredients << Ingredient.create(name: Faker::Food.ingredient)
+  5.times do
+    r.ingredients << Ingredient.create(name: Faker::Food.unique.ingredient)
+  end
 end
