@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   post "/events/:id/join", to: "events#join_event"
   post "/events/:id/leave", to: "events#leave_event"
 
+  match '*path' => redirect('/'), via: :get
 end
