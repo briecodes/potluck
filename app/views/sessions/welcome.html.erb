@@ -1,28 +1,30 @@
 <html>
   <body>
-    <%= link_to "Create an Account", sign_up_path %>
     <div id="main-container" class="container-fluid">
       <div class="row">
         <div id="content" class="col-md-4"></div>
         <div id="content" class="col-md-4">
-          <h4 class="text-left"> Ptlk_Planner </h4>
-          <h6 class="text-right"> Your Flatiron Potluck Planner. </h6>
+          <div class="entry_forms">
+            <h4 class="text-left"> Ptlk_Planner </h4>
+            <h6 class="text-right h6-size"> Your Flatiron Potluck Planner. </h6>
 
-          <%= form_for User.new, url: sessions_path, method: :post do |t| %>
-            <div class="form-group">
-                <%= t.label :username %> 
-                <%= t.text_field :username, class: "form-control" %>
-            </div>
-            <div class="form-group">
-              <%= t.label :password %> 
-              <%= t.password_field :password, class: "form-control" %>
-            </div>
+            <%= form_for User.new, url: sessions_path, method: :post do |t| %>
+              <div class="form-group">
+                  <%= t.label :username %> 
+                  <%= t.text_field :username, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= t.label :password %> 
+                <%= t.password_field :password, class: "form-control" %>
+              </div>
 
-            <%= t.submit %>
-          <% end %>
-
+              <%= t.submit %>
+            <% end %>
+          </div>
         </div>
-          <div id="content" class="col-md-4"></div>
+          <div id="sign-in-col" class="col-md-4" style="text-align: right; padding-top:20px; padding-right: 25px;">
+            <%= link_to "Create an Account", sign_up_path %>
+          </div>
       </div>
     </div>
   </body>

@@ -5,8 +5,15 @@
     <div id="content" class="col-sm-3">
     </div>
     <div id="content" class="col-md-6">
-      <div class="form-group">
+      <h4 class="h4-text">Add a Recipe</h4>
+      
+      <% if @recipe.errors.any? %>
+        <% @recipe.errors.full_messages.each do |msg| %>
+          <p><%= msg %></p>
+        <% end %>
+      <% end %>
 
+      <div class="form-group">
         <%= f.label :name %>
         <%= f.text_field :name, class: "form-control"%><br>
       </div>
@@ -18,18 +25,21 @@
       <div class="dropdown">
         <div id=myDropdown class="dropdown-content">
           <input type="text" placeholder="Search..." id="myInput" onkeyup="filterFunction()" class="form-control">
-          <div style="height:100px;overflow:auto;margin-bottom:25px;margin-top:20px">
-
-            <%= f.collection_check_boxes :ingredient_ids, @ingredients.order('name ASC'), :id, :name do |b| %>
-              <li>
-                <%= b.check_box %> <%= b.label %>
-              </li>
-            <% end %>
+          <div class="checkbox-dropdown">
+            <ul>
+              <%= f.collection_check_boxes :ingredient_ids, @ingredients.order('name ASC'), :id, :name do |b| %>
+                <li>
+                  <%= b.check_box %> <%= b.label %>
+                </li>
+              <% end %>
+            </ul>
 
           </div>
         </div>
       </div>
-      <%= f.submit class: "btn btn-default", id: "success-btn"%>
+      <center>
+        <%= f.submit class: "btn btn-default", id: "success-btn"%>
+      </center>
     </div>
     <div id="content" class="col-md-3">
     </div>

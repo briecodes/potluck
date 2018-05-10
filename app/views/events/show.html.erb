@@ -65,14 +65,18 @@
     <center>
       <% if !@user.events.include?(@event) %>
         <%= form_tag({controller: "events", method: "post", action: "join_event"}) do %>
-          <%= submit_tag "Join Event", class: "btn btn-default", id: "success-btn"%>
+          <%= submit_tag "Join Event", class: "btn btn-default"%>
         <% end %>
       <% end %>
 
       <% if @user.events.include?(@event) %>
         <%= form_tag({controller: "events", method: "post", action: "leave_event"}) do %>
-          <%= submit_tag "Leave Event", class: "btn btn-default", id: "warning-btn"%>
+          <%= submit_tag "Leave Event", class: "btn btn-default"%>
         <% end %>
+      <% end %>
+
+      <%= form_tag(@event, method: "delete") do %>
+        <%= submit_tag "Delete Potluck", class: "btn btn-default", id: "danger-btn" %>
       <% end %>
     </center>
   </div> <!-- col-md-4 end -->

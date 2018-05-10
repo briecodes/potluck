@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   post "/events/:id/join", to: "events#join_event"
   post "/events/:id/leave", to: "events#leave_event"
 
+  #Any unknown path will be redirected to the user show page or the login page if the user is not logged in
+  match '*path' => redirect('/'), via: :get
 end

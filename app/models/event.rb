@@ -7,5 +7,6 @@ class Event < ApplicationRecord
   validates(:title, {presence: true, uniqueness: true, length: {maximum: 20}})
   validates(:location, {presence: true, length: {maximum: 100}})
   validates(:date, {presence: true})
+  validates(:timeconvention, {presence: true})
   validates(:details, {length: { maximum: 1000 }})
 end
