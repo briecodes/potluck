@@ -154,3 +154,14 @@ ul {
 ul li {
     padding: 3px;
 }
+
+.checkbox-dropdown {
+    height:100px;
+    overflow:auto;
+    margin-bottom:25px;
+    margin-top:20px
+}
+
+.form-control  {
+    margin-top: 5px;
+}
