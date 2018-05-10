@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.3'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
@@ -30,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem "bcrypt"
+
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

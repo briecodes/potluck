@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'sessions#welcome'
-
+  resources :analytics, only: [:index]
   resources :events
   resources :ingredients
   resources :recipes
