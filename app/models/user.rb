@@ -10,11 +10,11 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   def self.all
-    self.all
+    User.all
   end
 
   def self.user_total
-    self.all.size
+    User.all.size
   end
 
   def self.user_most_recipes
