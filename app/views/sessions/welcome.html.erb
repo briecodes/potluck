@@ -5,16 +5,16 @@
         <div id="content" class="col-md-4"></div>
         <div id="content" class="col-md-4">
           <div class="entry_forms">
-            <h4 class="text-left"> Ptlk_Planner </h4>
+            <div><%= link_to (image_tag("logo.png", :alt => "Logo- press to go home", size: "125x25")), root_path %></div>
             <h6 class="text-right h6-size"> Your Flatiron Potluck Planner. </h6>
 
             <%= form_for User.new, url: sessions_path, method: :post do |t| %>
               <div class="form-group">
-                  <%= t.label :username %> 
+                  <%= t.label :username %>
                   <%= t.text_field :username, class: "form-control" %>
               </div>
               <div class="form-group">
-                <%= t.label :password %> 
+                <%= t.label :password %>
                 <%= t.password_field :password, class: "form-control" %>
               </div>
 
