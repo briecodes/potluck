@@ -1,4 +1,45 @@
-<h1>Analytics</h1>
+<html>
+  <body>
+    <div id="main-container" class="container-fluid">
+      <div id="content" class="col-md-2">
+      </div>
+      <div id="content" class="col-md-8">
 
-Number of Users: <%= User.user_total %>
-<!-- User with the Most Recipes: <%= User.user_most_recipes %> -->
+<h1>Analytics</h1><br><br>
+
+<table style="width:80%">
+  <tr>
+    <td>Number of Users: </td>
+    <td><%= User.user_total %></td>
+  </tr>
+  <tr>
+    <td>Number of Events: </td>
+    <td><%= Event.total_events %></td>
+  </tr>
+  <tr>
+    <td>Average Number of Recipes per User: </td>
+    <td><%= User.user_recipe_average %></td>
+  </tr>
+  <tr>
+    <td>Most Popular Recipe: </td>
+    <td><%= Recipe.popular %></td>
+  </tr>
+  <tr>
+    <td>Most Popular Event: </td>
+    <td><%= Event.popular_event %></td>
+  </tr>
+  <tr>
+    <td>Number of Ingredients: </td>
+    <td><%= Ingredient.num_of_ingredients %></td>
+  </tr>
+  <tr>
+    <td>Most Used Ingredient: </td>
+    <td><%= RecipeIngredient.most_used_ingredient[0] %></td>
+  </tr>
+  </table>
+</div>
+<div id="content" class="col-md-2">
+</div>
+</div>
+</body>
+</html>
