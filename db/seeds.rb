@@ -15,11 +15,12 @@ csv.each do |row|
   t.save
 end
 
+
 # Event.destroy_all
 # User.destroy_all
 # Recipe.destroy_all
 
-#Events model testing seeds 
+#Events model testing seeds
 ahamed = User.create(name: "Ahamed", username: "ahamed1", password: "1234", password_confirmation: "1234")
 daniel = User.create(name: "Daniel", username: "damndaniel", password: "password", password_confirmation: "password")
 joe = User.create(name: "Joe", username: "joe", password: "5678", password_confirmation: "5678")
@@ -34,9 +35,34 @@ event4 = Event.create(title: "Mod4 Potluck", location: "Turing", date: "2018-05-
 event1.users << ahamed << daniel << joe
 event2.users << ahamed << daniel << joe << brie << shun
 event3.users << ahamed << daniel << joe << brie
+=======
+usr_list = [
+  {name: "Bilbo Baggins", username: "bilbo", password: "password"},
+  {name: "Gollum", username: "gollum", password: "password"},
+  {name: "Beorn", username: "beorn", password: "password"},
+  {name: "Gandalf", username: "gandalf", password: "password"},
+  {name: "Smaug", username: "smaug", password: "password"},
+  {name: "Balin", username: "balin", password: "password"},
+  {name: "Elrond", username: "elrond", password: "password"},
+  {name: "Radagast", username: "radagast", password: "password"},
+  {name: "Dwalin", username: "Dwalin", password: "password"},
+  {name: "Bard", username: "bard", password: "password"},
+  {name: "Ahamed", username: "ahamed1", password: "1234", password_confirmation: "1234"},
+  {name: "Daniel", username: "damndaniel", password: "password", password_confirmation: "password"},
+  {name: "Joe", username: "joe", password: "5678", password_confirmation: "5678"},
+  {name: "Brie", username: "brie", password: "91011", password_confirmation: "91011"},
+  {name: "Shun", username: "theshun", password: "shunthis", password_confirmation: "shunthis"}
+]
 
 
-#Recipe.create(name: "Tumeric Caesar Salad", details: "Not good probably", user_id: @a.id)
+usr_list.each do |hash|
+  User.create(hash)
+end
+
+10.times do
+  Event.create(title: Faker::Lovecraft.tome, date: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today), location: Faker::RickAndMorty.location, details: Faker::RickAndMorty.quote)
+end
+
 
 # Recipe.create(name: "Tumeric Caesar Salad", details: "Not good probably", user_id: @a.id)
 # 20.times do
@@ -45,3 +71,10 @@ event3.users << ahamed << daniel << joe << brie
 #     r.ingredients << Ingredient.create(name: Faker::Food.unique.ingredient)
 #   end
 # end
+
+20.times do
+  r = Recipe.create(name: Faker::Food.dish, details: Faker::Food.description, user_id: rand(1..15))
+  5.times do
+    r.ingredients << Ingredient.create(name: Faker::Food.unique.ingredient)
+  end
+end
