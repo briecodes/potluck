@@ -1,5 +1,27 @@
-<h1>Edit Recipe Form</h1>
-<%= render "form", post_url: recipe_path(@recipe.id), method: "patch" %>
+<div id="main-container" class="container-fluid">
+  <row>
+    <div id="content" class="col-sm-3">
+    </div>
+    <div id="content" class="col-sm-6">
+      <% if @recipe.errors.any? %>
+        <% @recipe.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+        <% end %>
+      <% end %>
+<h2>Edit Recipe Form</h2>
 
+</div>
+<div id="content" class="col-sm-3">
+</div>
+</div>
+<%= render "form", post_url: recipes_path %>
 <br><br>
-<%= button_to "delete", {:controller => :recipes, :action => 'destroy', :id => @recipe.id }, :method => :delete %>
+
+
+  <div id="content" class="col-sm-3">
+  </div>
+  <div id="content" class="col-sm-6">
+<%= button_to "Delete Recipe", {:controller => :recipes, :action => 'destroy', :id => @recipe.id }, :method => :delete, class: "btn btn-default"  %>
+</div>
+<div id="content" class="col-sm-3">
+</div>
