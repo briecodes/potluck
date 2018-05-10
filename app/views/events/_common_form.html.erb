@@ -32,7 +32,9 @@
         <%= e.text_area :details, class: "form-control", size: "20x5" %> <br>
       </div>
       <div>
-        <h3>Choose dishes you’d like to bring:</h3><br>
+        <% if !User.find(session[:user_id]).recipes.empty?%>
+          <h3>Choose dishes you’d like to bring:</h3><br>
+        <% end %>
         <%= e.collection_check_boxes :recipe_ids, @recipes, :id, :name do |c| %>
           <div style="margin: 5px; display:block; float:left;"><%= c.check_box %> <%= c.label %></div>
         <% end %>
