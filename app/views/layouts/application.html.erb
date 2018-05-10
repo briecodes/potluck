@@ -16,8 +16,8 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
           <div id="navbar">
-            <div ><%= link_to (image_tag("logo.png", :alt => "Logo- press to go home", size: "125x25")), root_path %></div>
-            <div id="welcome_holder"><% if @nav_user.avatar_file_name != nil %><%= image_tag @nav_user.avatar.url(:small), style: "border-radius: 100%" %><% end %>
+            <div><%= link_to (image_tag("logo.png", :alt => "Logo- press to go home", size: "125x25")), root_path %></div>
+            <div id="welcome_holder"><% if @nav_user.avatar_file_name != nil %><%= image_tag @nav_user.avatar.url(:small), class: 'img-circle', style: 'height: 40px; width: 40px'%><% end %>
               Welcome, <%= @nav_user.name %> <span class="slashes">//</span> <%= link_to "Logout", log_out_path, :method => "POST" %>
             </div>
             <div class="divider"></div>
