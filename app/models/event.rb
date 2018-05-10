@@ -17,10 +17,10 @@ class Event < ApplicationRecord
   # List of events
   def self.events_list
     Event.all.map do |event_obj|
-      event_obj.name
+      event_obj.title
     end
   end
-  # Most popular event
+  # Most popular event - the event which has most people
   def self.popular_event
     hash_count = {}
 
@@ -44,6 +44,6 @@ class Event < ApplicationRecord
   end
   # Most popular time of day / time of year
   def self.popular_month
-    
+
   end
 end
