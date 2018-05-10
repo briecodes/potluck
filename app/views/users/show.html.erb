@@ -28,7 +28,7 @@
             <h4 style="color: #333333">Past Potlucks</h4>
           </div>
 
-          <ul style="list-style-type:none; padding-top: 10px">
+          <ul style="list-style-type:none; padding-top: 10px; padding-bottom: 10px">
             <% @events.each do |event| %>
             <% if event.date < DateTime.now %>
               <%= link_to "#{event.title} >", event%>
@@ -45,13 +45,15 @@
               <li><%= link_to "#{ recipe_obj.name} >", recipe_obj %></li>
             <% end %>
           </ul>
-          <% if session[:user_id] == @user.id %>
+
+        <% if @user.recipes.length == 0 && session[:user_id] == @user.id %>
+
           <%= link_to "Add a recipe >", new_recipe_path, :class => "btn btn-default"%>
+        <% end %>
         </div>
         <div id="content" class="col-md-2">
         </div>
       </div>
     </div>
-    <% end %>
   </body>
 </html>
