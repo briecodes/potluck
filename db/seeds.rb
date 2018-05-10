@@ -15,7 +15,6 @@ csv.each do |row|
   t.save
 end
 
-<<<<<<< HEAD
 
 # Event.destroy_all
 # User.destroy_all
@@ -37,8 +36,6 @@ event1.users << ahamed << daniel << joe
 event2.users << ahamed << daniel << joe << brie << shun
 event3.users << ahamed << daniel << joe << brie
 
-=======
->>>>>>> 630e64dec57a05ea4aaf145fbff19be7366b1a5f
 usr_list = [
   {name: "Bilbo Baggins", username: "bilbo", password: "password"},
   {name: "Gollum", username: "gollum", password: "password"},
