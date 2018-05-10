@@ -35,6 +35,10 @@ event4 = Event.create(title: "Mod4 Potluck", location: "Turing", date: "2018-05-
 event1.users << ahamed << daniel << joe
 event2.users << ahamed << daniel << joe << brie << shun
 event3.users << ahamed << daniel << joe << brie
+<<<<<<< HEAD
+=======
+
+>>>>>>> 30903958e505997de200d236743fce4d6f08172b
 usr_list = [
   {name: "Bilbo Baggins", username: "bilbo", password: "password"},
   {name: "Gollum", username: "gollum", password: "password"},
@@ -52,7 +56,6 @@ usr_list = [
   {name: "Brie", username: "brie", password: "91011", password_confirmation: "91011"},
   {name: "Shun", username: "theshun", password: "shunthis", password_confirmation: "shunthis"}
 ]
-
 
 usr_list.each do |hash|
   User.create(hash)
