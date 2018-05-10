@@ -68,6 +68,10 @@ body {
     margin-top: 25px;
 }
 
+#navbar a, #navbar a:hover, #navbar a:visited {
+    color: #636466;
+}
+
 .divider {
     width: 100%;
     height: 1px;
@@ -102,19 +106,23 @@ body {
     font-size: .5em;
 }
 
+a {
+    color: #00aeef;
+}
+
 a:link {
-    color: #3FA9F5;
+    color: #00aeef;
     text-decoration: none;
 }
 
 a:hover{
-    color: #3FA9F5;
+    color: #00aeef;
     text-decoration: underline;
     background-color: transparent;
 }
 
 a:visited {
-    color: #3FA9F5;
+    color: #00aeef;
     text-decoration: none;
 }
 
