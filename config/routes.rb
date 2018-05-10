@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :recipes
   resources :users, only: [:index, :create, :show, :edit, :update]
+  delete '/users/:id', to: 'users#destroy'
   get "/signup", to: "users#new", as: "sign_up"
   get '/login', to: 'sessions#new', as: "log_in"
   post "/sessions", to: "sessions#create", as: "sessions"
