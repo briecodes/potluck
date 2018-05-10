@@ -1,35 +1,35 @@
 <html>
   <body>
-    <%= link_to "Create an Account", sign_up_path %>
     <div id="main-container" class="container-fluid">
       <div class="row">
+        <div id="content" class="col-md-4"></div>
         <div id="content" class="col-md-4">
-        </div>
-        <div id="content" class="col-md-4">
-          <h4 class="text-left"> Ptlk_Planner </h4>  <h6 class="text-right"> Your Flatiron Potluck Planner. </h6>
-          <% if flash[:errors] %>
-              <ul>
-                <% flash[:errors].each do |e|%>
-                <li style="color:red"><%= e %></li>
-              </ul>
-                <% end %>
-          <% end %>
+          <div class="entry_forms">
+            <h4 class="text-left"> Ptlk_Planner </h4>  <h6 class="text-right h6-size"> Your Flatiron Potluck Planner. </h6>
+            <% if flash[:errors] %>
+                <ul>
+                  <% flash[:errors].each do |e|%>
+                  <li style="color:red"><%= e %></li>
+                </ul>
+                  <% end %>
+            <% end %>
 
-      <%= form_tag sessions_path do  %>
-          <div class="form-group">
-            <%= label_tag :username %>
-            <%= text_field_tag :username, "", class: "form-control" %>
+            <%= form_tag sessions_path do  %>
+              <div class="form-group">
+                <%= label_tag :username %>
+                <%= text_field_tag :username, "", class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= label_tag :password %>
+                <%= password_field_tag :password, "", class: "form-control" %>
+              </div>
+
+              <%= submit_tag "Login", :class => "btn btn-default" %>
+            <% end %>
           </div>
-          <div class="form-group">
-            <%= label_tag :password %>
-            <%= password_field_tag :password, "", class: "form-control" %>
           </div>
-
-          <%= submit_tag "Login", :class => "btn btn-default" %>
-      <% end %>
-
-        </div>
-        <div id="content" class="col-md-4">
+        <div id="sign-in-col" class="col-md-4" style="text-align: right; padding-top:20px; padding-right: 25px;">
+          <%= link_to "Create an Account", sign_up_path %>
         </div>
       </div>
     </div>

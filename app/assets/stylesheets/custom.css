@@ -58,7 +58,7 @@ table {
 
 body {
     font-family: 'Nanum Gothic', sans-serif;
-    font-color: #636466;
+    color: #636466;
 }
 
 #navbar {
@@ -167,6 +167,18 @@ ul li {
 }
 
 .h4-text{
-    text-size: 1.4375em;
+    font-size: 1.4375em;
     margin-bottom: 25px;
+}
+
+.h6-size  {
+    font-size: .75em;
+}
+
+.entry_forms {
+    margin-top: 150px;
+}
+
+#sign-in-col {
+    font-size: .75em;
 }
