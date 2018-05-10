@@ -9,6 +9,9 @@ class User < ApplicationRecord
   validates :username, format: { without: /\s/ }
   validates :name, presence: true
 
+  has_attached_file :avatar, styles: { small: "64x64", med: "100x100", large: "200x200>"}
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
   def self.user_total
     User.all.size
   end
