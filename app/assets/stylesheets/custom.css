@@ -216,3 +216,7 @@ ul li {
 .collapse + input:checked + #recipe_form{
     display:block;
 }
+
+#attendees li{
+    padding-bottom: 5px;
+}

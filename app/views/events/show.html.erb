@@ -3,7 +3,7 @@
   <div class="col-md-2"></div>
   <div class="col-sm-4">
 
-    <h2><%= @event.title %> <span class="event_small"><span class="slashes">//</span> <%= link_to "edit event", edit_event_path(@event) %></span></h2>
+    <h2><%= @event.title %> <span class="event_small"><span class="slashes">&nbsp;&nbsp;//</span> <%= link_to "edit event", edit_event_path(@event) %></span></h2>
     Date: <%= @event.date.to_formatted_s(:long_ordinal) %><br>
     Location: <%= @event.location %><br><br>
 
@@ -23,33 +23,39 @@
               <% else %>
                 <%= user.name %> <span class="slashes">//</span>
               <% end %>
-              <% user.recipes.each do |dish| %>
+              <% if user.recipes.size > 0 %>
+                <% user.recipes.each do |dish| %>
                   <% if @event.recipes.include?(dish) %>
-                    <%= link_to "x", eventrecipes_path(d_id: dish.id, e_id: @event.id), :method => :delete %> <%= dish.name %>
+                    <% if user.id == current_user.id %>
+                      <%= link_to "x", eventrecipes_path(d_id: dish.id, e_id: @event.id), :method => :delete %>
+                    <% end %>
+                      <%= dish.name %>
                   <% else %>
-                    <label class="collapse" for="_1">+ Add a Dish</label>
-                    <input id="_1" type="checkbox"> 
-                    <div id="recipe_form" class=".collapse" style="margin-top:20px;">
-                      <%= form_for @eventrecipe, url: eventrecipes_path do |t| %>
-                        <%= t.hidden_field :event_id, value: @event.id %>
-                        <%= t.label "Your Dishes" %>:<br>
-                        <%= t.collection_check_boxes :recipe_id, @user.recipes, :id, :name %><br><br>
-                        <%= t.submit "Add dish to Event" %>
-                      <% end %>
-                    </div>
+                    <% if user.id == current_user.id %>
+                      <label class="collapse" for="_1">+ Add a Dish</label>
+                      <input id="_1" type="checkbox"> 
+                      <div id="recipe_form" class=".collapse" style="margin-top:20px;padding-left:15px;">
+                        <%= form_for @eventrecipe, url: eventrecipes_path do |t| %>
+                          <%= t.hidden_field :event_id, value: @event.id %>
+                          <%= t.label "Your Dishes" %>:<br>
+                          <%= t.collection_check_boxes :recipe_id, @user.recipes, :id, :name %><br><br>
+                          <%= t.submit "Add dish to Event" %>
+                        <% end %>
+                      </div>
+                    <% end %>
                   <% end %>
                 <% end %>
+              <% else %>
+                <% if user.id == current_user.id %>
+                  <%= link_to "Create a Recipe >", new_recipe_path %>
+                <% end %>
+              <% end %>
             </li>
           <% end %>
         </ul>
       <% end %>
     </div> <!-- end #attendees -->
     <br><br>
-    <h4>Dishes being Brought:</h4>
-    <div class="divider2"></div>
-    <% @event.recipes.each do |d| %>
-      <%= d.name %>
-    <% end %>
 
   </div> <!-- col-sm-4 end -->
   <div class="col-md-2"></div>
@@ -70,10 +76,6 @@
         <%= form_tag({controller: "events", method: "post", action: "leave_event"}) do %>
           <%= submit_tag "Leave Event", class: "btn btn-default"%>
         <% end %>
-      <% end %>
-
-      <%= form_tag(@event, method: "delete") do %>
-        <%= submit_tag "Delete Potluck", class: "btn btn-default", id: "danger-btn" %>
       <% end %>
     </center>
   </div> <!-- col-md-4 end -->
