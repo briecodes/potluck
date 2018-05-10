@@ -6,10 +6,13 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :recipes
   resources :users, only: [:index, :create, :show, :edit, :update]
+  delete '/users/:id', to: 'users#destroy'
   get "/signup", to: "users#new", as: "sign_up"
   get '/login', to: 'sessions#new', as: "log_in"
   post "/sessions", to: "sessions#create", as: "sessions"
   post "/logout", to: "sessions#destroy", as: "log_out"
+  post '/eventrecipes', to: "event_recipes#new"
+  delete '/eventrecipes', to: "event_recipes#destroy"
 
   # For details on the DSL available within this file, see http://gu vbides.rubyonrails.org/routing.html
 
@@ -17,4 +20,6 @@ Rails.application.routes.draw do
   post "/events/:id/join", to: "events#join_event"
   post "/events/:id/leave", to: "events#leave_event"
 
+  #Any unknown path will be redirected to the user show page or the login page if the user is not logged in
+  match '*path' => redirect('/'), via: :get
 end

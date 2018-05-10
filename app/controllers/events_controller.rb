@@ -27,6 +27,12 @@ class EventsController < ApplicationController
   end
 
   def create
+    if params[:event][:timeconvention] == "true"
+      params[:event][:timeconvention] = "AM"
+    else
+      params[:event][:timeconvention] = "PM"
+    end
+
     @event = Event.new(event_params)
 
     if @event.valid?
@@ -46,6 +52,12 @@ class EventsController < ApplicationController
   end
 
   def update
+    if params[:event][:timeconvention] == "true"
+      params[:event][:timeconvention] = "AM"
+    else
+      params[:event][:timeconvention] = "PM"
+    end
+
     if @event.update(event_params)
       redirect_to event_path
     else
@@ -56,7 +68,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    flash[:notice] = "Event has been deleted. Go to self page to create a new event"
+    flash[:notice] = "Event has been deleted. Go home to create a new event"
     redirect_to events_path
   end
 
@@ -79,7 +91,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :location, :date, :details, recipe_ids:[])
+    params.require(:event).permit(:title, :location, :date, :timeconvention, :details, recipe_ids:[])
   end
 
   def get_recipes

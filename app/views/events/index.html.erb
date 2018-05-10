@@ -1,7 +1,7 @@
 <%= flash[:notice] %>
 
-<h2>Potlucks</h1>
-  <% @events.each do |event_obj| %>
+<h2>Potlucks</h2>
+  <!-- <% @events.each do |event_obj| %>
     <div class="row">
       <div class="col-lg-1">
         <strong><%= link_to event_obj.title, event_path(event_obj)%></strong>
@@ -26,4 +26,31 @@
         <% end %>
       </div>
     </div>
-  <% end %>
+  <% end %> -->
+
+  <table class="table table-hover col-md-1">
+  <thead>
+    <tr>
+      <th scope="col", style="font-weight: bold;">#</th>
+      <th scope="col", style="font-weight: bold;">Name</th>
+      <th scope="col", style="font-weight: bold;">Date</th>
+      <th scope="col", style="font-weight: bold;">Attending</th>
+      <th scope="col", style="font-weight: bold;">Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each_with_index do |event_obj, index| %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td class="col-md-2"><%= link_to event_obj.title, event_path(event_obj) %></td>
+        <td class="col-md-3"><%= "#{event_obj.date.to_formatted_s(:long)}" + " #{event_obj.timeconvention}"%></td>
+        <% if User.find(session[:user_id]).events.include?(event_obj) %>
+            <td class="col-md-3">✔️</td>
+        <% else %>
+          <td class="col-md-3"></td>
+        <% end %>
+        <td class="col-md-3"><%= event_obj.location %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
