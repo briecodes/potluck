@@ -37,10 +37,8 @@ usr_list.each do |hash|
   User.create(hash)
 end
 
-Event.create(title: "Mod2 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
-
 10.times do
-  Event.create(title: Faker::Lovecraft.unique.tome, date: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today), location: Faker::RickAndMorty.unique.location, details: Faker::RickAndMorty.quote)
+  Event.create(title: Faker::Lovecraft.tome, date: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today), location: Faker::RickAndMorty.location, details: Faker::RickAndMorty.quote)
 end
 
 20.times do

@@ -14,9 +14,9 @@ class User < ApplicationRecord
   end
 
   def self.user_most_recipes
-    @list = User.all.each do |a,b|
-      a.recipes.size <=> b.recipes.size
-    end
+    list = User.all.select do |user|
+      user.recipes
+    end.sort {|a,b| b.recipes.size <=> a.recipes.size }.first.name
   end
 
   def self.user_recipe_average
@@ -24,8 +24,8 @@ class User < ApplicationRecord
   end
 
   def self.social_butterfly
-    @popular_person = User.all.each do |a,b|
-      a.events.size <=> b.events.size
-    end.first
+    @popular_person = User.all.sort do |a,b|
+      b.events.size <=> a.events.size
+    end.first.name
   end
 end
