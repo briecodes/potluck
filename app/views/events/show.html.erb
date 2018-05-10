@@ -25,9 +25,8 @@
               <% end %>
               <% user.recipes.each do |dish| %>
                   <% if @event.recipes.include?(dish) %>
-                    <%= link_to "x", eventrecipes_path(d_id: [dish], e_id: @event.id), :method => :delete %> <%= dish.name %>
+                    <%= link_to "x", eventrecipes_path(d_id: dish.id, e_id: @event.id), :method => :delete %> <%= dish.name %>
                   <% else %>
-
                     <label class="collapse" for="_1">+ Add a Dish</label>
                     <input id="_1" type="checkbox"> 
                     <div id="recipe_form" class=".collapse" style="margin-top:20px;">

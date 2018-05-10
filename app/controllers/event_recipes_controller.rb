@@ -11,9 +11,9 @@ class EventRecipesController < ApplicationController
     end
 
     def destroy
-        byebug
-        event_recipe = EventRecipe.find_by(event_id: params[:e_id], recipe_id: params[:r_id])
-        byebug
+        event_recipe = EventRecipe.where(event_id: params[:e_id], recipe_id: params[:d_id]).first
+        event_recipe.destroy
+        redirect_to event_path(params[:e_id])
     end
 
     private

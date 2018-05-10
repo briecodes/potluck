@@ -14,24 +14,24 @@
 //     display: block;
 // }
 
-.collapse{
-    color: #00aeef;
-    cursor: pointer;
-    display: inline;
-}
+// .collapse{
+//     color: #00aeef;
+//     cursor: pointer;
+//     display: inline;
+// }
 
-.collapse:hover{
-    text-decoration: underline;
-}
+// .collapse:hover{
+//     text-decoration: underline;
+// }
 
-.collapse + input{
-    display: none; /* hide the checkboxes */
-}
+// .collapse + input{
+//     display: none; /* hide the checkboxes */
+// }
 
-.collapse + input + #recipe_form{
-    display:none;
-}
+// .collapse + input + #recipe_form{
+//     display:none;
+// }
 
-.collapse + input:checked + #recipe_form{
-    display:block;
-}
+// .collapse + input:checked + #recipe_form{
+//     display:block;
+// }
