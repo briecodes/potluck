@@ -1,20 +1,40 @@
-<h1><%= @recipe.name %></h1>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-sm-4">
 
-<h2><%= @recipe.details %></h2>
+    <h2><%= @recipe.name %> <span class="event_small"><span class="slashes">&nbsp;&nbsp;//</span> <%= link_to "edit recipe", edit_recipe_path(@recipe) %></span></h2>
+  <br><br><br>
 
-<p><b>Ingredients:</b></p>
+    <strong>Details:</strong>
+    <p><%= @recipe.details %></p>
+  </div>
+  <div class="col-sm-4">
+    <div id="attendees" class=".collapse">
+    <h4>Ingredients (<%= @recipe.ingredients.size %>)</h4>
+    <ul>
+      <div class="divider2"></div>
+        <% @recipe.ingredients.each do |i| %>
+          <li><%= i.name %></li>
+        <% end %>
+      </ul>
+    </div> <!-- end #ingredients -->
+    <br><br>
 
-<ul>
-  <% @recipe.ingredients.each do |i| %>
-    <li><%=link_to i.name, i %></li>
-  <% end %>
-</ul>
+  </div> <!-- col-sm-4 end -->
+  <div class="col-md-2"></div>
+</div> <!-- div "row" end -->
 
-<p>
-  <% if current_user == @recipe.user %>
-    <%= link_to "Edit", edit_recipe_path, :class => "btn btn-default" %>
-    <%= link_to "Delete", recipe_path, :method => "DELETE", :class => "btn btn-default" %>
-  <% end %>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <br><br>
+    <center>
+      <% if current_user == @recipe.user %>
+        <%= link_to "Edit", edit_recipe_path, :class => "btn btn-default" %>
+        <%= link_to "Delete", recipe_path, :method => "DELETE", :class => "btn btn-default" %>
+      <% end %>
 
-  <%= link_to "Back", root_path, :class => "btn btn-default" %>
-</p>
+    </center>
+  </div> <!-- col-md-4 end -->
+  <div class="col-md-4"></div>
+</div> <!-- div "row" end -->
