@@ -33,7 +33,11 @@
                       <%= form_for @eventrecipe, url: eventrecipes_path do |t| %>
                         <%= t.hidden_field :event_id, value: @event.id %>
                         <%= t.label "Your Dishes" %>:<br>
-                        <%= t.collection_check_boxes :recipe_id, @user.recipes, :id, :name %><br><br>
+                        <%= t.collection_check_boxes :recipe_id, @user.recipes, :id, :name do |c| %>
+                        <span><%= c.check_box %> <%= c.label %></span>
+                        <% end %>
+                        <div style="clear: both;"></div>
+                        <br>
                         <%= t.submit "Add dish to Event" %>
                       <% end %> <!-- end recipe form -->
                     </div> <!-- end #recipe_form -->
