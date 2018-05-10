@@ -45,3 +45,24 @@ RSpec.describe Recipe, type: :model do
     expect(Recipe.new).to respond_to(:details)
   end
 end
+
+RSpec.describe User, type: :model do
+  before do
+    User.destroy_all
+    Event.destroy_all
+    @user = User.create(name: "Ahamed", username: "ahamed001", password: "hello", password_confirmation: "hello")
+    @event = Event.create(title: "Mod 2 potluck", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
+    @event1 = Event.create(title: "Mod 5 potluck", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
+
+    @user.events << @event
+    @user.events << @event1
+  end
+
+  it "includes the event in the user events" do
+    expect(@user.events.include?(@event)).to be true
+  end
+
+  it "count the events" do
+    expect(@user.events.count).to eq(2)
+  end
+end
