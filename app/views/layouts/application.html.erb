@@ -22,12 +22,14 @@
             </div>
             <div class="divider"></div>
             <!-- <%= link_to "Home", user_path(current_user), :class => "nav-item nav-link" %> <span class="slashes">//</span> -->
+            <%= link_to "Explore Potlucks", events_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
             <%= link_to "Add a Recipe", new_recipe_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
             <%= link_to "Create a new Potluck", new_event_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
-            <%= link_to "Explore Potlucks", events_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
             <%= link_to "Add a New Ingredient", new_ingredient_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
-            <%= link_to "Edit Profile", edit_user_path(current_user), :class => "nav-item nav-link" %>
-          </div>
+            <div style="float: right;">
+              <%= link_to "Edit Profile", edit_user_path(current_user), :class => "nav-item nav-link" %>
+            </div>
+          </div> <!-- end #navbar -->
         </div> <!-- end .col-md-8 -->
         <div id="content" class="col-md-1"></div>
       </div> <!-- end .container-fluid -->
@@ -42,10 +44,10 @@
           <div id="footer">
             <div class="divider"></div>
             { made with love }
-          </div>
-        </div>
+          </div> <!-- end #footer -->
+        </div> <!-- end .col-md-10 -->
         <div class="col-md-1"></div>
-      </div>
+      </div><!-- end .container-fluid -->
     <% end %>
 
   </body>
