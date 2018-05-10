@@ -35,3 +35,13 @@ RSpec.describe Event, type: :model do
         expect(Event.new).to respond_to(:timeconvention)
     end
 end
+
+RSpec.describe Recipe, type: :model do
+  it 'has a name field' do
+    expect(Recipe.new).to respond_to(:name)
+  end
+
+  it 'has a details field' do
+    expect(Recipe.new).to respond_to(:details)
+  end
+end
