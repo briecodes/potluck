@@ -4,7 +4,7 @@
   <div class="col-sm-4">
 
     <h2><%= @event.title %> <span class="event_small"><span class="slashes">&nbsp;&nbsp;//</span> <%= link_to "edit event", edit_event_path(@event) %></span></h2>
-    Date: <%= @event.date.to_formatted_s(:long_ordinal) %><br>
+    Date: <%= "#{@event.date.to_formatted_s(:long_ordinal)} #{@event.timeconvention}" %><br>
     Location: <%= @event.location %><br><br>
 
     <strong>Details:</strong>
@@ -28,7 +28,7 @@
                 <% if (user.recipes & @event.recipes).empty? %>
                   <% if user.id == current_user.id %>
                     <label class="collapse" for="_1">+ Add a Dish</label>
-                    <input id="_1" type="checkbox"> 
+                    <input id="_1" type="checkbox">
                     <div id="recipe_form" class=".collapse" style="margin-top:20px;padding-left:15px;">
                       <%= form_for @eventrecipe, url: eventrecipes_path do |t| %>
                         <%= t.hidden_field :event_id, value: @event.id %>
@@ -44,7 +44,7 @@
                   <% end %> <!-- end if user == current user -->
                 <% else %> <!-- end if user submitted recipe -->
                 <% end %> <!-- end if-empty -->
-              
+
                 <% user.recipes.each do |dish| %>
                   <% if @event.recipes.include?(dish) %>
                     <% if user.id == current_user.id %>
