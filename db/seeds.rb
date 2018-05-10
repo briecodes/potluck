@@ -53,6 +53,6 @@ event2 = Event.create(title: "Mod2 Potluck", location: "Kay", date: "2018-05-07-
 event3 = Event.create(title: "Mod3 Potluck", location: "Kay", date: "2018-01-07-12:00", details: "Let's celebrate!!!!")
 event4 = Event.create(title: "Mod4 Potluck", location: "Turing", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
 
-event1.users << ahamed << daniel << joe
-event2.users << ahamed << daniel << joe << brie << shun
-event3.users << ahamed << daniel << joe << brie
+event1.users << User.find(11) << User.find(12) << User.find(13)
+event2.users << User.find(11) << User.find(12) << User.find(13) << User.find(14) << User.find(15)
+event3.users << User.find(11) << User.find(12) << User.find(13) << User.find(14)
