@@ -19,12 +19,13 @@
         <div id=myDropdown class="dropdown-content">
           <input type="text" placeholder="Search..." id="myInput" onkeyup="filterFunction()" class="form-control">
           <div style="height:100px;overflow:auto;margin-bottom:25px;margin-top:20px">
-
-            <%= f.collection_check_boxes :ingredient_ids, @ingredients.order('name ASC'), :id, :name do |b| %>
-              <li>
-                <%= b.check_box %> <%= b.label %>
-              </li>
-            <% end %>
+            <ul>
+              <%= f.collection_check_boxes :ingredient_ids, @ingredients.order('name ASC'), :id, :name do |b| %>
+                <li>
+                  <%= b.check_box %> <%= b.label %>
+                </li>
+              <% end %>
+            </ul>
 
           </div>
         </div>

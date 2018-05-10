@@ -143,3 +143,14 @@ a:visited {
 .btn {
     font-size: .8em;
 }
+
+ul {
+    list-style-type: none;
+    font-size: .8em;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    padding: 3px;
+}
