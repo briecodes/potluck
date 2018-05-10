@@ -44,15 +44,23 @@ end
   end
 end
 
-10.times do
-  Event.create(title: Faker::Lovecraft.tome, date: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today), location: Faker::RickAndMorty.location, details: Faker::RickAndMorty.quote)
+5.times do
+  @title = Faker::Lovecraft.unique.tome[0..19]
+  @date = Faker::Date.forward(23)
+  @location = Faker::Address.state
+  @details = Faker::Hipster.paragraph
+  @event = Event.create(title: @title, date: @date,timeconvention: "AM",location: @location, details: @details)
 end
 
-event1 = Event.create(title: "Mod1 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
-event2 = Event.create(title: "Mod2 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
-event3 = Event.create(title: "Mod3 Potluck", location: "Kay", date: "2018-01-07-12:00", details: "Let's celebrate!!!!")
-event4 = Event.create(title: "Mod4 Potluck", location: "Turing", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
+User.all.each do |user_obj|
+  user_obj.events << Event.find(rand(1..5))
+end
 
-event1.users << ahamed << daniel << joe
-event2.users << ahamed << daniel << joe << brie << shun
-event3.users << ahamed << daniel << joe << brie
+# event1 = Event.create(title: "Mod1 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
+# event2 = Event.create(title: "Mod2 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
+# event3 = Event.create(title: "Mod3 Potluck", location: "Kay", date: "2018-01-07-12:00", details: "Let's celebrate!!!!")
+# event4 = Event.create(title: "Mod4 Potluck", location: "Turing", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
+#
+# event1.users << ahamed << daniel << joe
+# event2.users << ahamed << daniel << joe << brie << shun
+# event3.users << ahamed << daniel << joe << brie
