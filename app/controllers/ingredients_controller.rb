@@ -17,7 +17,8 @@ class IngredientsController < ApplicationController
         @ingredient = Ingredient.new(ingredient_params)
         if @ingredient.valid?
             @ingredient.save
-            redirect_to @ingredient
+            flash[:success] = ["You successfully created an ingredient."]
+            redirect_to new_ingredient_path
         else
             flash[:errors] = @ingredient.errors.full_messages
             redirect_to new_ingredient_path
