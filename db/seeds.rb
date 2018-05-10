@@ -27,5 +27,5 @@ Event.create(title: "Mod2 Potluck", location: "Kay", date: "2018-05-07-12:00", d
 
 # Recipe.create(name: "Tumeric Caesar Salad", details: "Not good probably", user_id: @a.id)
 20.times do
-  Recipe.create(name: Faker::Food.dish, details: Faker::Food.description)
+  Recipe.create(name: Faker::Food.dish, details: Faker::Food.description, user_id: 1)
 end
