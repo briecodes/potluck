@@ -224,3 +224,9 @@ ul li {
 .flash-messages {
 	color: red;
 }
+
+#recipe_form span{
+    display: block;
+    float: left;
+    margin: 5px;
+}
