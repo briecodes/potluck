@@ -225,6 +225,7 @@ ul li {
 	color: red;
 }
 
+
 div.circle-avatar{
 /* make it responsive */
 max-width: 100%;
@@ -247,3 +248,10 @@ background-size: cover;
 
 /* it is optional, for making this div centered in parent*/
 }
+
+#recipe_form span{
+    display: block;
+    float: left;
+    margin: 5px;
+}
+
