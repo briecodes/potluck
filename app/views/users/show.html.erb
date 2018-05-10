@@ -14,7 +14,7 @@
           <ul style="list-style-type:none; padding-top: 10px; padding-bottom: 10px">
             <% @events.each do |event| %>
             <% if event.date > DateTime.now %>
-              <%= link_to "#{event.title} >", event%>
+              <li><%= link_to "#{event.title} >", event%></li>
               <% end %>
             <% end %>
           </ul>
@@ -40,7 +40,7 @@
           <div style="background-color: #F2F2F2; padding: 7px">
             <h4 style="color: #333333">Recipes</h4>
           </div>
-          <ul style="list-style-type:none; padding-top: 10px">
+          <ul style="list-style-type:none; padding-top: 10px; padding-bottom: 10px">
             <% @user.recipes.each do |recipe_obj| %>
               <li><%= link_to "#{ recipe_obj.name} >", recipe_obj %></li>
             <% end %>
