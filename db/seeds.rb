@@ -18,6 +18,9 @@ end
 # Event.destroy_all
 # User.destroy_all
 # Recipe.destroy_all
+10.times do
+  User.create(name: Faker::Food.dish, username: Faker::Food.dish, password: Faker::Food.dish, password_confirmation: Faker::Food.dish)
+end
 
 Event.create(title: "Mod2 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
 # @a = User.create(name: "Ahamed", username: "ahamed1", password: "1234")
