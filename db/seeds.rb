@@ -22,10 +22,17 @@ end
 Event.create(title: "Mod2 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
 # @a = User.create(name: "Ahamed", username: "ahamed1", password: "1234")
 # User.create(name: "Daniel", username: "damndaniel", password: "password")
+User.create(name: "Ahamed", username: "ahamed1", password: "1234", password_confirmation: "1234")
+User.create(name: "Daniel", username: "damndaniel", password: "password", password_confirmation: "password")
+User.create(name: "Joe", username: "joe", password: "5678", password_confirmation: "5678")
+User.create(name: "Brie", username: "brie", password: "91011", password_confirmation: "91011")
+User.create(name: "Shun", username: "theshun", password: "shunthis", password_confirmation: "shunthis")
+
 
 #Recipe.create(name: "Tumeric Caesar Salad", details: "Not good probably", user_id: @a.id)
 
 # Recipe.create(name: "Tumeric Caesar Salad", details: "Not good probably", user_id: @a.id)
 20.times do
-  Recipe.create(name: Faker::Food.dish, details: Faker::Food.description, user_id: 1)
+  r = Recipe.create(name: Faker::Food.dish, details: Faker::Food.description, user_id: rand(1..5))
+  r.ingredients << Ingredient.create(name: Faker::Food.ingredient)
 end
