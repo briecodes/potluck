@@ -78,3 +78,7 @@
   </div> <!-- col-md-4 end -->
   <div class="col-md-4"></div>
 </div> <!-- div "row" end -->
+
+<%= form_tag(@event, method: "delete") do %>
+  <%= submit_tag "Delete Potluck", class: "btn btn-default", id: "danger-btn" %>
+<% end %>
