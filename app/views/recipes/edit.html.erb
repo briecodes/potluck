@@ -8,7 +8,7 @@
         <p><%= msg %></p>
         <% end %>
       <% end %>
-<h2>Edit Recipe Form</h2>
+  <h2>Edit Recipe Form</h2>
 
 </div>
 <div id="content" class="col-sm-3">
@@ -18,10 +18,10 @@
 <br><br>
 
 
-  <div id="content" class="col-sm-3">
-  </div>
+  <div id="content" class="col-sm-3"></div>
   <div id="content" class="col-sm-6">
-<%= button_to "Delete Recipe", {:controller => :recipes, :action => 'destroy', :id => @recipe.id }, :method => :delete, class: "btn btn-default"  %>
-</div>
-<div id="content" class="col-sm-3">
-</div>
+    <center>
+      <%= button_to "Delete Recipe", {:controller => :recipes, :action => 'destroy', :id => @recipe.id }, :method => :delete, class: "btn btn-default"  %>
+    </center>
+  </div>
+<div id="content" class="col-sm-3"></div>
