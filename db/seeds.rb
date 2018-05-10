@@ -15,6 +15,30 @@ csv.each do |row|
   t.save
 end
 
+<<<<<<< HEAD
+
+# Event.destroy_all
+# User.destroy_all
+# Recipe.destroy_all
+
+#Events model testing seeds
+ahamed = User.create(name: "Ahamed", username: "ahamed1", password: "1234", password_confirmation: "1234")
+daniel = User.create(name: "Daniel", username: "damndaniel", password: "password", password_confirmation: "password")
+joe = User.create(name: "Joe", username: "joe", password: "5678", password_confirmation: "5678")
+brie = User.create(name: "Brie", username: "brie", password: "91011", password_confirmation: "91011")
+shun = User.create(name: "Shun", username: "theshun", password: "shunthis", password_confirmation: "shunthis")
+
+event1 = Event.create(title: "Mod1 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
+event2 = Event.create(title: "Mod2 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
+event3 = Event.create(title: "Mod3 Potluck", location: "Kay", date: "2018-01-07-12:00", details: "Let's celebrate!!!!")
+event4 = Event.create(title: "Mod4 Potluck", location: "Turing", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
+
+event1.users << ahamed << daniel << joe
+event2.users << ahamed << daniel << joe << brie << shun
+event3.users << ahamed << daniel << joe << brie
+
+=======
+>>>>>>> 7344f35670e4f482b87e86aa66d61a05956e4755
 usr_list = [
   {name: "Bilbo Baggins", username: "bilbo", password: "password"},
   {name: "Gollum", username: "gollum", password: "password"},
@@ -53,6 +77,12 @@ event2 = Event.create(title: "Mod2 Potluck", location: "Kay", date: "2018-05-07-
 event3 = Event.create(title: "Mod3 Potluck", location: "Kay", date: "2018-01-07-12:00", details: "Let's celebrate!!!!")
 event4 = Event.create(title: "Mod4 Potluck", location: "Turing", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
 
+<<<<<<< HEAD
+event1.users << ahamed << daniel << joe
+event2.users << ahamed << daniel << joe << brie << shun
+event3.users << ahamed << daniel << joe << brie
+=======
 event1.users << User.find(11) << User.find(12) << User.find(13)
 event2.users << User.find(11) << User.find(12) << User.find(13) << User.find(14) << User.find(15)
 event3.users << User.find(11) << User.find(12) << User.find(13) << User.find(14)
+>>>>>>> 7344f35670e4f482b87e86aa66d61a05956e4755
