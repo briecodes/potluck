@@ -2,14 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.collapse a{
-    display: block;
-}
+// .collapse a{
+//     display: block;
+// }
 
-.collapse > div {
-    display: none;
-}
+// .collapse > div {
+//     display: none;
+// }
 
-.collapse > div:target{
-    display: block;
-}
+// .collapse > div:target{
+//     display: block;
+// }
+
+// .collapse{
+//     color: #00aeef;
+//     cursor: pointer;
+//     display: inline;
+// }
+
+// .collapse:hover{
+//     text-decoration: underline;
+// }
+
+// .collapse + input{
+//     display: none; /* hide the checkboxes */
+// }
+
+// .collapse + input + #recipe_form{
+//     display:none;
+// }
+
+// .collapse + input:checked + #recipe_form{
+//     display:block;
+// }

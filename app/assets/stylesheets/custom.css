@@ -81,6 +81,15 @@ body {
     margin-bottom: 10px;
 }
 
+.divider2 {
+    width: 100%;
+    height: 1px;
+    background-color: #c7c8ca;
+    clear: both;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 #welcome_holder{
     float: right;
 }
@@ -181,4 +190,33 @@ ul li {
 
 #sign-in-col {
     font-size: .75em;
+}
+
+
+/* EVENTS SHOW */
+
+.collapse{
+    color: #00aeef;
+    cursor: pointer;
+    display: inline;
+}
+
+.collapse:hover{
+    text-decoration: underline;
+}
+
+.collapse + input{
+    display: none; /* hide the checkboxes */
+}
+
+.collapse + input + #recipe_form{
+    display:none;
+}
+
+.collapse + input:checked + #recipe_form{
+    display:block;
+}
+
+#attendees li{
+    padding-bottom: 5px;
 }
