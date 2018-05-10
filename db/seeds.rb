@@ -26,8 +26,26 @@ usr_list = [
   {name: "Radagast", username: "radagast", password: "password"},
   {name: "Dwalin", username: "Dwalin", password: "password"},
   {name: "Bard", username: "bard", password: "password"},
+  {name: "Ahamed", username: "ahamed1", password: "1234", password_confirmation: "1234"},
+  {name: "Daniel", username: "damndaniel", password: "password", password_confirmation: "password"},
+  {name: "Joe", username: "joe", password: "5678", password_confirmation: "5678"},
+  {name: "Brie", username: "brie", password: "91011", password_confirmation: "91011"},
+  {name: "Shun", username: "theshun", password: "shunthis", password_confirmation: "shunthis"}
 ]
 
 usr_list.each do |hash|
   User.create(hash)
+end
+
+Event.create(title: "Mod2 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
+
+10.times do
+  Event.create(title: Faker::Lovecraft.unique.tome, date: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today), location: Faker::RickAndMorty.unique.location, details: Faker::RickAndMorty.quote)
+end
+
+20.times do
+  r = Recipe.create(name: Faker::Food.dish, details: Faker::Food.description, user_id: rand(1..15))
+  5.times do
+    r.ingredients << Ingredient.create(name: Faker::Food.unique.ingredient)
+  end
 end

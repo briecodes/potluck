@@ -1,5 +1,9 @@
 require_relative 'boot'
 require 'faker'
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
