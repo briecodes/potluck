@@ -15,14 +15,19 @@ csv.each do |row|
   t.save
 end
 
-# Event.destroy_all
-# User.destroy_all
-# Recipe.destroy_all
+usr_list = [
+  {name: "Bilbo Baggins", username: "bilbo", password: "password"},
+  {name: "Gollum", username: "gollum", password: "password"},
+  {name: "Beorn", username: "beorn", password: "password"},
+  {name: "Gandalf", username: "gandalf", password: "password"},
+  {name: "Smaug", username: "smaug", password: "password"},
+  {name: "Balin", username: "balin", password: "password"},
+  {name: "Elrond", username: "elrond", password: "password"},
+  {name: "Radagast", username: "radagast", password: "password"},
+  {name: "Dwalin", username: "Dwalin", password: "password"},
+  {name: "Bard", username: "bard", password: "password"},
+]
 
-Event.create(title: "Mod2 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
-# @a = User.create(name: "Ahamed", username: "ahamed1", password: "1234")
-# User.create(name: "Daniel", username: "damndaniel", password: "password")
-
-#Recipe.create(name: "Tumeric Caesar Salad", details: "Not good probably", user_id: @a.id)
-
-# Recipe.create(name: "Tumeric Caesar Salad", details: "Not good probably", user_id: @a.id)
+usr_list.each do |hash|
+  User.create(hash)
+end
