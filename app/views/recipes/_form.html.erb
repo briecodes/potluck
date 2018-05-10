@@ -5,8 +5,15 @@
     <div id="content" class="col-sm-3">
     </div>
     <div id="content" class="col-md-6">
-      <div class="form-group">
+      <h4 class="h4-text">Add a Recipe</h4>
+      
+      <% if @recipe.errors.any? %>
+        <% @recipe.errors.full_messages.each do |msg| %>
+          <p><%= msg %></p>
+        <% end %>
+      <% end %>
 
+      <div class="form-group">
         <%= f.label :name %>
         <%= f.text_field :name, class: "form-control"%><br>
       </div>
