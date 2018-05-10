@@ -9,10 +9,6 @@ class User < ApplicationRecord
   validates :username, format: { without: /\s/ }
   validates :name, presence: true
 
-  # def self.all
-  #   User.all
-  # end
-
   def self.user_total
     User.all.size
   end
