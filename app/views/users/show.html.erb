@@ -19,7 +19,7 @@
             <% end %>
           </ul>
       <% if @user.events.length == 0 && session[:user_id] == @user.id %>
-          <%= link_to "Explore Potlucks >", new_recipe_path, :class => "btn btn-default"%>
+          <%= link_to "Explore Potlucks >", events_path, :class => "btn btn-default"%>
           <div style="padding-bottom: 20px"> </div>
       <% end %>
 
