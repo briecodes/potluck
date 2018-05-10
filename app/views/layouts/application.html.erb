@@ -36,8 +36,15 @@
     <%= yield %>
 
     <% if logged_in %>
-      <div id="footer">
-        {made with love}
+      <div class="container-fluid">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div id="footer">
+            <div class="divider"></div>
+            { made with love }
+          </div>
+        </div>
+        <div class="col-md-1"></div>
       </div>
     <% end %>
 
