@@ -50,19 +50,52 @@ RSpec.describe User, type: :model do
   before do
     User.destroy_all
     Event.destroy_all
-    @user = User.create(name: "Ahamed", username: "ahamed001", password: "hello", password_confirmation: "hello")
-    @event = Event.create(title: "Mod 2 potluck", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
-    @event1 = Event.create(title: "Mod 5 potluck", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
+    Recipe.destroy_all
 
-    @user.events << @event
+    @user = User.create(name: "Ahamed", username: "ahamed001", password: "hello", password_confirmation: "hello")
+    @event1 = Event.create(title: "Mod 2 potluck", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
+    @event2 = Event.create(title: "Mod 5 potluck", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
+    @recipe1 = Recipe.create(name: "Biriyani", details: "Very good!", user_id: @user.id)
+    @recipe2 = Recipe.create(name: "Coconut Rice", details: "Very good!", user_id: @user.id)
+
     @user.events << @event1
+    @user.events << @event2
   end
 
   it "includes the event in the user events" do
-    expect(@user.events.include?(@event)).to be true
+    expect(@user.events.include?(@event1)).to be true
   end
 
   it "count the events" do
     expect(@user.events.count).to eq(2)
+  end
+
+  it "gets the user's recipes" do
+    expect(@user.recipes).to include(@recipe1, @recipe2)
+  end
+end
+
+RSpec.describe Event, type: :model do
+  before do
+    @valid_event = Event.create(title: "Mod 5 potluck", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
+    @invalid_event_missing_title = Event.create(date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
+    @invalid_event_longer_title = @event = Event.create(title: "Mod 5 potluck. Moddy! moddy! moddy!", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
+  end
+
+  it "is valid" do
+    expect(@valid_event).to be_valid
+  end
+
+  it "is invalid with no title" do
+    expect(@invalid_event_missing_title).to be_invalid
+  end
+
+  it "is invalid with a longer title" do
+    expect(@invalid_event_longer_title).to be_invalid
+  end
+
+  it "is invalid when non-unique" do
+    @event = Event.create(title: "Mod 5 potluck", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
+    expect(@event).to be_invalid
   end
 end
