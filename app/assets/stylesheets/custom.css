@@ -97,9 +97,10 @@ body {
 }
 
 #logo {
-    height: 30px;
-    width: 150px;
+    height: 40px;
+    width: 152px;
     float: left;
+    margin-top: -5px;
     background-size: cover;
     background-position-x: center;
     background-position-y: center;
