@@ -198,6 +198,9 @@ ul li {
 
 .entry_forms {
     margin-top: 150px;
+    background: #fff;
+    border-radius: 10%;
+    padding: 25px;
 }
 
 #sign-in-col {
@@ -281,7 +284,7 @@ div.circle-avatar {
 
     /* it makes the clue thing, takes smaller dimension to fill div */
     background-size: cover;
-    background-color: fuchsia;
+    background-color: #fff;
     /* it is optional, for making this div centered in parent*/
 }
 
