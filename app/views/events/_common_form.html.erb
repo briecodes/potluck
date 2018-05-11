@@ -1,5 +1,4 @@
-
-<%= form_for @event do |e| %>
+<div class="container-fluid">
   <div class="row">
     <div class="col-sm-3">
     </div>
@@ -11,42 +10,43 @@
           <% end %>
         <% end %>
       </ul>
-      <div class="form-group">
-        <%= e.label :title %>
-        <%= e.text_field :title, class: "form-control" %> <br>
-      </div>
-      <div class="form-group">
-        <%= e.label :location %>
-        <%= e.text_field :location, class: "form-control" %> <br>
-      </div>
-      <div class="form-group">
-        <%= e.label :date %>
-        <%= e.datetime_select :date, class: "form-control", start_year: Date.today.year, use_short_month: true, date_separator: "/", order: [:day,:month,:year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, start_hour: 1, end_hour: 12 %>
-        <%= e.label :timeconvention, "AM", :value => "AM"  %>
-        <%= e.radio_button :timeconvention, true %>
-        <%= e.label :timeconvention, "PM", :value => "PM" %>
-        <%= e.radio_button :timeconvention, false, :checked => true %> <br>
-      </div>
-      <div style="margin-bottom:25px;">
-        <%= e.label :details %>
-        <%= e.text_area :details, class: "form-control", size: "20x5" %> <br>
-      </div>
-      <div>
-        <% if !User.find(session[:user_id]).recipes.empty?%>
-          <h3>Choose dishes you’d like to bring:</h3><br>
-        <% end %>
-        <%= e.collection_check_boxes :recipe_ids, @recipes, :id, :name do |c| %>
-          <div style="margin: 5px; display:block; float:left;"><%= c.check_box %> <%= c.label %></div>
-        <% end %>
-        <div style="clear: both;"></div>
-      </div>
-      <div style="padding-top: 8%">
-        <center>
-        <%= e.submit class: "btn btn-default"%>
-      </center>
-      </div>
-      <div id="content" class="col-md-3">
-      </div>
-    </div>
-  </div>
-<% end %>
+      <%= form_for @event do |e| %>
+        <div class="form-group">
+          <%= e.label :title %>
+          <%= e.text_field :title, class: "form-control" %> <br>
+        </div>
+        <div class="form-group">
+          <%= e.label :location %>
+          <%= e.text_field :location, class: "form-control" %> <br>
+        </div>
+        <div class="form-group">
+          <%= e.label :date %><br>
+          <%= e.datetime_select :date, class: "form-control", start_year: Date.today.year, use_short_month: true, date_separator: "  /  ", order: [:day,:month,:year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, start_hour: 1, end_hour: 12 %>
+          <%= e.label :timeconvention, "AM", :value => "AM"  %>
+          <%= e.radio_button :timeconvention, true %>
+          <%= e.label :timeconvention, "PM", :value => "PM" %>
+          <%= e.radio_button :timeconvention, false, :checked => true %> <br><br>
+        </div>
+        <div class="form-group" style="margin-bottom:25px;margin-top:15px;">
+          <%= e.label :details %>
+          <%= e.text_area :details, class: "form-control", size: "20x5" %> <br>
+        </div>
+        <div>
+          <% if !User.find(session[:user_id]).recipes.empty?%>
+            <h3>Choose dishes you’d like to bring:</h3><br>
+          <% end %>
+          <%= e.collection_check_boxes :recipe_ids, @recipes, :id, :name do |c| %>
+            <div style="margin: 5px; display:block; float:left;"><%= c.check_box %> <%= c.label %></div>
+          <% end %>
+          <div style="clear: both;"></div>
+        </div>
+        <div style="padding-top: 8%">
+          <center>
+          <%= e.submit class: "btn btn-default"%>
+          </center>
+        </div>
+      <% end %>
+      <div id="content" class="col-md-3"></div>
+    </div> <!-- end .col-md-6 -->
+  </div><!-- end .row -->
+</div><!-- end .container-fluid -->
