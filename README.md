@@ -11,3 +11,5 @@ Following is the Entity Relationship Diagram that describes the entities/models 
 * Paperclip - a Ruby gem provided by thoughtbot which allows easy file attachment management.
 * Bootstrap - a front-end framework which allows to build more responsive, user-friendly web applications.
 * Bcrypt - a Ruby gem provided by The OpenBSD project which allows to safely handle passwords by hashing the passwords.
+
+#ADD GIF HERE TO DEMONSTRATE HOW THE APP WORKS
