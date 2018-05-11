@@ -1,41 +1,11 @@
-
-
-  <!-- <% @events.each do |event_obj| %>
-    <div class="row">
-      <div class="col-lg-1">
-        <strong><%= link_to event_obj.title, event_path(event_obj)%></strong>
-      </div>
-      <div class="col-lg-1">
-        <%= event_obj.location %>
-      </div>
-      <div class="col-lg-1">
-        <%= event_obj.date %>
-      </div>
-      <div class="col-lg-1">
-        <% if User.find(session[:user_id]).events.include?(event_obj) %>
-            ✔️
-        <% end %>
-      </div>
-      <div class="col-lg-1">
-        <%= link_to "Edit Potluck", edit_event_path(event_obj), class: "btn btn-default", id: "warning-btn"%>
-      </div>
-      <div class="col-lg-1">
-        <%= form_tag(event_obj, method: "delete") do %>
-          <%= submit_tag "Delete Potluck", class: "btn btn-default", id: "danger-btn" %>
-        <% end %>
-      </div>
-    </div>
-  <% end %> -->
 <div class="row">
-  <div id="content" class="col-sm-3">
-  </div>
-  <div id="content" class="col-md-6">
+  <div id="content" class="col-sm-2"></div>
+  <div class="col-md-8">
     <!-- <p class="flash-messages"><%= flash[:notice]%></p> -->
     <h4 class="h4-text">Potlucks</h4>
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col", style="font-weight: bold;">#</th>
           <th scope="col", style="font-weight: bold;">Name</th>
           <th scope="col", style="font-weight: bold;">Date</th>
           <th scope="col", style="font-weight: bold;">Attending</th>
@@ -45,11 +15,10 @@
       <tbody>
         <% @events.each_with_index do |event_obj, index| %>
           <tr>
-            <th scope="row"><%= index + 1 %></th>
             <td class="col-md-2"><%= link_to event_obj.title, event_path(event_obj) %></td>
             <td class="col-md-3"><%= "#{event_obj.date.to_formatted_s(:long)}" + " #{event_obj.timeconvention}"%></td>
             <% if User.find(session[:user_id]).events.include?(event_obj) %>
-                <td class="col-md-3">✔️</td>
+                <td class="col-md-3"> ✔️</td>
             <% else %>
               <td class="col-md-3"></td>
             <% end %>
@@ -58,7 +27,6 @@
         <% end %>
       </tbody>
     </table>
-  </div>
-  <div id="content" class="col-md-3">
-  </div>
-</div>
+  </div><!-- end .col-md-8 -->
+  <div id="content" class="col-md-2"></div>
+</div><!-- end .row -->
