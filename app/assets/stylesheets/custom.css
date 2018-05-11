@@ -108,6 +108,17 @@ body {
     background-repeat: no-repeat;
 }
 
+#logo2 {
+    height: 40px;
+    width: 152px;
+    margin-top: -5px;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 #footer {
     color: #C7C8CA;
     font-size: .6875em;
