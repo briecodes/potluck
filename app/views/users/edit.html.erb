@@ -1,26 +1,38 @@
-<div id="main-container" class="container-fluid">
-  <div id="content" class="col-md-2">
-  </div>
-  <div id="content" class="col-md-8">
+<div class="container-fluid">
+  <div class="row" >
+    <div class="col-sm-3"></div>
+    <div class="col-md-6">
+      <% if session[:user_id] == @user.id %>
+        <h4 class="h4-text">Edit Profile</h4>
 
-<% if session[:user_id] == @user.id %>
-  <h3>Edit Profile</h3>
+        <%= form_for @user do |u| %>
+          <div class="form-group">
+            <%= u.label :name %>
+            <%= u.text_field :name, class: "form-control"%>
+          </div>
 
-  <%= form_for @user do |u| %>
-    <%= u.label :name %>
-    <%= u.text_field :name, class: "form-control"%>
-    <%= u.label :username %>
-    <%= u.text_field :username, class: "form-control"%>
-    <%= u.label :avatar %>
-    <%= u.file_field :avatar, class: "form-control" %>
-    <%= u.submit class: "btn btn-default"%>
-    <div style= "padding-top: 10px">
-    </div>
-  <% end %>
-  <%= link_to "Delete", user_path, :method => "DELETE", :class => "btn btn-default" %>
-<% else %>
-  <h3 style="text-align: center">You don't have sufficient permissions to edit this user.</h3><%= link_to "Back to Home", user_path(session[:user_id]), :class => "btn btn-block"%>
-</div>
-<% end %>
-<div id="content" class="col-md-2">
-</div>
+          <div class="form-group">
+            <%= u.label :username %>
+            <%= u.text_field :username, class: "form-control"%>
+          </div>
+
+          <div class="form-group">
+            <%= u.label :avatar %>
+            <%= u.file_field :avatar, class: "form-control" %>
+          </div>
+          <div style= "padding-top: 25px"></div>
+          <center>
+            <%= u.submit class: "btn btn-default" %>
+          </center>
+          <div style= "padding-top: 25px"></div>
+        <% end %>
+        <center>
+          <%= link_to "Delete", user_path, :method => "DELETE", :class => "delete-btn btn btn-default" %>
+        </center>
+      <% else %>
+          <h3 style="text-align: center">You don't have sufficient permissions to edit this user.</h3><%= link_to "Back to Home", user_path(session[:user_id]), :class => "btn btn-block"%>
+      <% end %>
+    </div><!-- end .col-md-6 -->
+    <div class="col-sm-3"></div>
+  </div><!-- end .row -->
+</div><!-- end .container-fluid -->
