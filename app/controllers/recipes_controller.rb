@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
   def show
     @user = User.find(session[:user_id])
   end
-  
+
   def new
     @recipe = Recipe.new
     @ingredients = Ingredient.all
@@ -35,7 +35,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
-    redirect_to recipes_path
+    redirect_to user_path(current_user)
   end
   private
   def recipe_params

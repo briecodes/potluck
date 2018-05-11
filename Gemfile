@@ -5,7 +5,7 @@ ruby '2.3.3'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 # Bootstrap
-gem 'paperclip'
+gem 'paperclip', '~>5.2.0'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

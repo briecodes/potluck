@@ -31,7 +31,6 @@
     <center>
       <% if current_user == @recipe.user %>
         <%= link_to "Edit", edit_recipe_path, :class => "btn btn-default" %>
-        <%= link_to "Delete", recipe_path, :method => "DELETE", :class => "btn btn-default" %>
       <% end %>
 
     </center>

@@ -7,6 +7,15 @@
         <% end %>
     </ul>
 <% end %>
+<% if flash[:success] %>
+    <ul>
+        <% flash[:success].each do |s| %>
+            <li>
+                <%= s %>
+            </li>
+        <% end %>
+    </ul>
+<% end %>
 
 <div class="container-fluid">
   <div class="row">
