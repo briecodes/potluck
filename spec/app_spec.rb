@@ -53,6 +53,7 @@ RSpec.describe User, type: :model do
     Recipe.destroy_all
 
     @user = User.create(name: "Ahamed", username: "ahamed001", password: "hello", password_confirmation: "hello")
+    @user2 = User.create(name: "Ahamed", username: "ahamed001", password: "hello", password_confirmation: "hello")
     @event1 = Event.create(title: "Mod 2 potluck", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
     @event2 = Event.create(title: "Mod 5 potluck", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
     @recipe1 = Recipe.create(name: "Biriyani", details: "Very good!", user_id: @user.id)
@@ -60,6 +61,18 @@ RSpec.describe User, type: :model do
 
     @user.events << @event1
     @user.events << @event2
+  end
+
+  it "is valid" do
+    expect(@user).to be_valid
+  end
+
+  it "is invalid with non-unique username" do
+    expect(@user2).to be_invalid
+  end
+
+  it "includes two users in the database" do
+    expect(User.all).to include(@user)
   end
 
   it "includes the event in the user events" do
@@ -80,6 +93,8 @@ RSpec.describe Event, type: :model do
     @valid_event = Event.create(title: "Mod 5 potluck", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
     @invalid_event_missing_title = Event.create(date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
     @invalid_event_longer_title = @event = Event.create(title: "Mod 5 potluck. Moddy! moddy! moddy!", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
+    @invalid_event_missing_location = Event.create(title: "Mod 5 potluck. Moddy! moddy! moddy!", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", details: "Bring food guys!")
+    @invalid_event_missing_date = Event.create(title: "Mod 5 potluck. Moddy! moddy! moddy!", timeconvention: "AM", location: "New York", details: "Bring food guys!")
   end
 
   it "is valid" do
@@ -94,8 +109,16 @@ RSpec.describe Event, type: :model do
     expect(@invalid_event_longer_title).to be_invalid
   end
 
-  it "is invalid when non-unique" do
+  it "is invalid when given non-unique title" do
     @event = Event.create(title: "Mod 5 potluck", date: "11/12/2019 00:00::00 UTC", timeconvention: "AM", location: "New York", details: "Bring food guys!")
     expect(@event).to be_invalid
+  end
+
+  it "is invalid with no location" do
+    expect(@invalid_event_missing_location).to be_invalid
+  end
+
+  it "is invalid with no date" do
+    expect(@invalid_event_missing_date).to be_invalid
   end
 end

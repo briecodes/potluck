@@ -1,4 +1,3 @@
-
 class Ingredient < ApplicationRecord
   has_many :recipe_ingredients
   has_many :recipes, through: :recipe_ingredients
@@ -8,7 +7,4 @@ class Ingredient < ApplicationRecord
   def self.num_of_ingredients
     Ingredient.all.count
   end
-
-
-  
 end
