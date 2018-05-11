@@ -1,24 +1,5 @@
-# README
+# Potluck Event Planner Web Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<*APP NAME*> is a web application written with Ruby on Rails to organize group meals. The application permits users to create an account, book potluck events along with recipes, explore all events created by other users, able to join/leave events as they wish and add recipes/ingredients to their list. <*APP NAME*> effectively uses CRUD functionality, RESTful routing and MVC architecture. This application implements the core concept of relational database as a foundation to relate data to one another so that information can be efficiently retrieved. The relationships are formed using ActiveRecord associations. This application also utilizes Rake tool to effectively manage the database changes(migration, seed, rollback, etc..).
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Following is the Entity Relationship Diagram that describes the entities/models and associations between these entities:
