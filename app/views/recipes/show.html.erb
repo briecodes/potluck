@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-md-2"></div>
-  <div class="col-sm-4">
+  <div class="col-sm-4 present-col">
 
-    <h2><%= @recipe.name %> <span class="event_small"><span class="slashes">&nbsp;&nbsp;//</span> <%= link_to "edit recipe", edit_recipe_path(@recipe) %></span></h2>
-  <br><br><br>
-
-    <strong>Details:</strong>
-    <p><%= @recipe.details %></p>
+    <h2><%= @recipe.name %> <span class="event_small"><span class="slashes">&nbsp;&nbsp;//</span> <%= link_to "edit recipe", edit_recipe_path(@recipe), style: "font-weight:normal;" %></span></h2>
+    <p>
+      <span class="bold">Details:</span>
+      <%= @recipe.details %>
+    </p>
   </div>
   <div class="col-sm-4">
     <div id="attendees" class=".collapse">
