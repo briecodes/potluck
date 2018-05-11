@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true
   validates :username, format: { without: /\s/ }
+  validates :username, presence: true
   validates :name, presence: true
 
   has_attached_file :avatar, styles: { small: "64x64", med: "100x100", large: "200x200>"}
