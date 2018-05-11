@@ -1,14 +1,15 @@
 
 <div class="row">
   <div class="col-md-2"></div>
-  <div class="col-sm-4">
+  <div class="col-sm-4 present-col">
 
-    <h2><%= @event.title %> <span class="event_small"><span class="slashes">&nbsp;&nbsp;//</span> <%= link_to "edit event", edit_event_path(@event) %></span></h2>
-    Date: <%= "#{@event.date.to_formatted_s(:long_ordinal)} #{@event.timeconvention}" %><br>
-    Location: <%= @event.location %><br><br>
-
-    <strong>Details:</strong>
-    <p><%= @event.details %></p>
+    <h2><%= @event.title %> <span class="event_small"><span class="slashes">&nbsp;&nbsp;//</span> <%= link_to "edit event", edit_event_path(@event), style: "font-weight:normal;" %></span></h2>
+    <p>
+      <span class="bold">Date:</span> <%= "#{@event.date.to_formatted_s(:long_ordinal)} #{@event.timeconvention}" %><br>
+      <span class="bold">Location:</span> <%= @event.location %><br><br>
+      <span class="bold">Details:</span>
+      <%= @event.details %>
+    </p>
   </div>
   <div class="col-sm-4">
     <div id="attendees" class=".collapse">
