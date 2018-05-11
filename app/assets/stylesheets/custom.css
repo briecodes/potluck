@@ -117,6 +117,7 @@ body {
 
 .slashes {
     color: #C7C8CA;
+    font-weight: normal;
 }
 
 .event_small {
@@ -291,4 +292,18 @@ div.circle-avatar {
     display: block;
     float: left;
     margin: 5px;
+}
+
+.present-col h2 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.present-col p{
+    line-height: 1.5em;
+    font-size: .8em;
 }
