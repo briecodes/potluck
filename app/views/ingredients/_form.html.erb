@@ -1,26 +1,26 @@
-<% if flash[:errors] %>
-    <ul>
-        <% flash[:errors].each do |error| %>
-            <li>
-                <%= error %>.
-            </li>
-        <% end %>
-    </ul>
-<% end %>
-<% if flash[:success] %>
-    <ul>
-        <% flash[:success].each do |s| %>
-            <li>
-                <%= s %>
-            </li>
-        <% end %>
-    </ul>
-<% end %>
-
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-md-6">
+      <% if flash[:errors] %>
+          <ul>
+              <% flash[:errors].each do |error| %>
+                  <li>
+                      <%= error %>.
+                  </li>
+              <% end %>
+          </ul>
+      <% end %>
+      <% if flash[:success] %>
+          <ul>
+              <% flash[:success].each do |s| %>
+                  <li>
+                      <%= s %>
+                  </li>
+              <% end %>
+          </ul>
+      <% end %>
+
         <%= form_for @ingredient do |t| %>
             <%= t.label :name %>
             <%= t.text_field :name, class:"form-control" %><br><br>
