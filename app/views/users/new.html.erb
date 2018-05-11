@@ -6,7 +6,10 @@
         </div>
         <div id="content" class="col-md-4">
           <div class="entry_forms">
-            <div><%= link_to (image_tag("logo.png", :alt => "Logo- press to go home", size: "125x25")), root_path %></div>  <h6 class="text-right h6-size"> Your Flatiron Potluck Planner. </h6>
+            <center>
+              <div style="margin-bottom: 15px;"><%= link_to (image_tag("logo.png", :alt => "Logo- press to go home", size: "125x25")), root_path %></div>
+              <h6 class="h6-size" style="margin-bottom: 15px;"> Your Flatiron Potluck Planner.</h6>
+            </center>
             <% if flash[:errors] %>
                 <ul>
                   <% flash[:errors].each do |e|%>
