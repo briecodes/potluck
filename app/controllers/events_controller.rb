@@ -73,14 +73,14 @@ class EventsController < ApplicationController
   end
 
   def join_event
-    flash[:notice] = "Joined Event"
+    #flash[:notice] = "Joined Event"
     @event.users << User.find(session[:user_id])
     # redirect_to events_path
     redirect_to event_path(@event)
   end
 
   def leave_event
-    flash[:notice] = "Left Event"
+    #flash[:notice] = "Left Event"
     @event.users.delete(User.find(session[:user_id]))
     redirect_to events_path
   end

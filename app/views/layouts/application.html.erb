@@ -16,19 +16,28 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
           <div id="navbar">
-            <div><%= link_to (image_tag("logo.png", :alt => "Logo- press to go home", size: "125x25")), root_path %></div>
-            <div id="welcome_holder"><% if @nav_user.avatar_file_name != nil %><%= image_tag @nav_user.avatar.url(:small), class: 'img-circle', style: 'height: 40px; width: 40px'%><% end %>
-              Welcome, <%= @nav_user.name %> <span class="slashes">//</span> <%= link_to "Logout", log_out_path, :method => "POST" %>
+            
+            <a href="/" >
+              <div id="logo" style="background-image: url('<%= image_path('logo.png') %>');"></div>
+            </a>
+            <% if @nav_user.avatar_file_name != nil %>
+              <div class="circle-avatar-test" style="background-image: url('<%= @nav_user.avatar.url(:small) %>');"></div>
+            <% end %>
+
+            <div id="welcome_holder">
+              Welcome <%= @nav_user.name %>! <span class="slashes">&nbsp;//&nbsp;</span> <%= link_to "Logout", log_out_path, :method => "POST" %>
             </div>
+            <div style="clear:both;" ></div>
             <div class="divider"></div>
             <!-- <%= link_to "Home", user_path(current_user), :class => "nav-item nav-link" %> <span class="slashes">//</span> -->
             <%= link_to "Explore Potlucks", events_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
-            <%= link_to "Add a Recipe", new_recipe_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
+            <%= link_to "Create a new Recipe", new_recipe_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
             <%= link_to "Create a new Potluck", new_event_path, :class => "nav-item nav-link" %> <span class="slashes">//</span>
-            <%= link_to "Add a New Ingredient", new_ingredient_path, :class => "nav-item nav-link" %>
+            <%= link_to "Create a New Ingredient", new_ingredient_path, :class => "nav-item nav-link" %>
             <div style="float: right;">
               <%= link_to "Edit Profile", edit_user_path(current_user), :class => "nav-item nav-link" %>
             </div>
+
           </div> <!-- end #navbar -->
         </div> <!-- end .col-md-8 -->
         <div id="content" class="col-md-1"></div>

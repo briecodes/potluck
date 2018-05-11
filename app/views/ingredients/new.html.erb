@@ -1,16 +1,13 @@
-<html>
-    <body>
-        <div id="main-container" class="container-fluid">
-            <div class="row">
-                <div id="content" class="col-md-4"></div>
-                <div id="content" class="col-md-4">
+<div class="container-fluid">
+    <div class="row">
+        <div id="content" class="col-sm-3"></div>
+        <div id="content" class="col-md-6">
 
-                    <h4 class="h4-text">Create a New Ingredient</h4>
-                    <%= render "form" %>
+            <h4 class="h4-text">Create a new Ingredient</h4>
+        
+        </div><!-- end .col-md-6 -->
+        <div id="content" class="col-sm-3"></div>
+    </div><!-- end .row -->
+</div><!-- end .container-fluid -->
 
-                </div>
-                <div id="content" class="col-md-4"></div>
-            </div>
-        </div>
-    </body>
-</html>
+<%= render "form" %>

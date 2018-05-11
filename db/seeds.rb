@@ -16,6 +16,7 @@ csv.each do |row|
 end
 
 usr_list = [
+  {name: "App Admin", username: "admin", password: "password"},
   {name: "Bilbo Baggins", username: "bilbo", password: "password"},
   {name: "Gollum", username: "gollum", password: "password"},
   {name: "Beorn", username: "beorn", password: "password"},
@@ -44,15 +45,14 @@ end
   end
 end
 
-10.times do
-  Event.create(title: Faker::Lovecraft.tome, date: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today), location: Faker::RickAndMorty.location, details: Faker::RickAndMorty.quote)
+5.times do
+  @title = Faker::Lovecraft.unique.tome[0..19]
+  @date = Faker::Date.forward(23)
+  @location = Faker::Address.state
+  @details = Faker::Hipster.paragraph
+  @event = Event.create(title: @title, date: @date,timeconvention: "AM",location: @location, details: @details)
 end
 
-event1 = Event.create(title: "Mod1 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
-event2 = Event.create(title: "Mod2 Potluck", location: "Kay", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
-event3 = Event.create(title: "Mod3 Potluck", location: "Kay", date: "2018-01-07-12:00", details: "Let's celebrate!!!!")
-event4 = Event.create(title: "Mod4 Potluck", location: "Turing", date: "2018-05-07-12:00", details: "Let's celebrate!!!!")
-
-event1.users << User.find(11) << User.find(12) << User.find(13)
-event2.users << User.find(11) << User.find(12) << User.find(13) << User.find(14) << User.find(15)
-event3.users << User.find(11) << User.find(12) << User.find(13) << User.find(14)
+User.all.each do |user_obj|
+  user_obj.events << Event.find(rand(1..5))
+end

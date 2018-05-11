@@ -1,11 +1,14 @@
 <html>
-  <body>
+  <body class="jumbotron">
     <div id="main-container" class="container-fluid">
       <div class="row">
         <div id="content" class="col-md-4"></div>
         <div id="content" class="col-md-4">
           <div class="entry_forms">
-            <div><%= link_to (image_tag("logo.png", :alt => "Logo- press to go home", size: "125x25")), root_path %></div> <h6 class="text-right h6-size"> Your Flatiron Potluck Planner. </h6>
+            <center>
+              <div style="margin-bottom: 15px;"><%= link_to (image_tag("logo.png", :alt => "Logo- press to go home", size: "125x25")), root_path %></div>
+              <h6 class="h6-size" style="margin-bottom: 15px;"> Your Flatiron Potluck Planner.</h6>
+            </center>
             <% if flash[:errors] %>
                 <ul>
                   <% flash[:errors].each do |e|%>
@@ -23,13 +26,14 @@
                 <%= label_tag :password %>
                 <%= password_field_tag :password, "", class: "form-control" %>
               </div>
-
-              <%= submit_tag "Login", :class => "btn btn-default" %>
+              <center>
+                <%= submit_tag "Login", :class => "btn btn-default" %>
+              </center>
             <% end %>
           </div>
           </div>
         <div id="sign-in-col" class="col-md-4" style="text-align: right; padding-top:20px; padding-right: 25px;">
-          <%= link_to "Create an Account", sign_up_path %>
+          <%= link_to "Create an Account", sign_up_path, class: "btn btn-default" %>
         </div>
       </div>
     </div>

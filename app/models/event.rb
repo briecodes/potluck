@@ -43,7 +43,15 @@ class Event < ApplicationRecord
     hash_count.key(hash_count.values.max)
   end
   # Most popular time of day / time of year
-  def self.popular_month
+  def self.popular_season
+    hash_count = Hash.new(0)
 
+    Event.all.map do |event_obj|
+      event_obj.date.to_formatted_s(:long).split(" ")[0]
+    end.each do |month|
+      hash_count[month] += 1
+    end
+
+    hash_count.key(hash_count.values.max)
   end
 end
