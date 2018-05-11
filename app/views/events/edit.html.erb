@@ -1,18 +1,11 @@
-<html>
-  <body>
-    <div id="main-container" class="container-fluid">
-      <row>
-        <div id="content" class="col-sm-3">
-        </div>
-        <div id="content" class="col-sm-6">
-<h2> Edit <%= @event.title %></h2>
-</div>
-<div id="content" class="col-sm-3">
-</div>
-</div>
-</row>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3"></div>
+      <div id="content" class="col-md-6">
+        <h2 class="h4-text">Edit <%= @event.title %></h2>
+      </div>
+      <div id="content" class="col-sm-3"></div>
+    </div><!-- end .col-sm-3 -->
+  </div><!-- end .row -->
+<div><!-- end .container-fluid -->
 <%= render "common_form" %>
-<div>
-</body>
-</html>
