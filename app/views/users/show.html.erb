@@ -4,6 +4,11 @@
     <div class="col-md-8">
       <h4 class="h4-text"><%= @user.name %></h4>
 
+      <% if @user.username == "admin" %>
+        <%= link_to "Analytics >", analytics_path, :class => "btn btn-default"%>
+        <div style="padding-bottom: 20px"></div>
+      <% end %>
+
       <div style="background-color: #F2F2F2; padding: 7px">
         <h4 style="color: #333333">Upcoming Potlucks</h4>
       </div>
