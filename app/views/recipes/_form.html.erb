@@ -1,11 +1,8 @@
 <%# <% puts "post to #{post_url}" %>
-
-<%= form_for @recipe do |f| %>
+<div class="container-fluid">
   <div class="row">
-    <div id="content" class="col-sm-3">
-    </div>
-    <div id="content" class="col-md-6">
-      <h4 class="h4-text">Add a Recipe</h4>
+    <div class="col-sm-3"></div>
+    <div class="col-md-6">
 
       <% if @recipe.errors.any? %>
         <% @recipe.errors.full_messages.each do |msg| %>
@@ -13,38 +10,38 @@
         <% end %>
       <% end %>
 
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control"%><br>
-      </div>
-      <div class="form-group">
-        <%= f.label :details %>
-        <%= f.text_field :details, class: "form-control"%><br>
-      </div>
-      <%= f.label :ingredients %>
-      <div class="dropdown">
-        <div id=myDropdown class="dropdown-content">
-          <input type="text" placeholder="Search..." id="myInput" onkeyup="filterFunction()" class="form-control">
-          <div class="checkbox-dropdown">
-            <ul>
-              <%= f.collection_check_boxes :ingredient_ids, @ingredients.order('name ASC'), :id, :name do |b| %>
-                <li>
-                  <%= b.check_box %> <%= b.label %>
-                </li>
-              <% end %>
-            </ul>
-
-          </div>
+      <%= form_for @recipe do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control"%><br>
         </div>
-      </div>
-      <center>
-        <%= f.submit class: "btn btn-default"%>
-      </center>
-    </div>
-    <div id="content" class="col-md-3">
-    </div>
-  </div>
-<% end %>
+        <div class="form-group">
+          <%= f.label :details %>
+          <%= f.text_area :details, class: "form-control", size: "20x4" %><br>
+        </div>
+        <%= f.label :ingredients %>
+        <div class="dropdown">
+          <div id=myDropdown class="dropdown-content">
+            <input type="text" placeholder="Search..." id="myInput" onkeyup="filterFunction()" class="form-control">
+            <div class="checkbox-dropdown">
+              <ul>
+                <%= f.collection_check_boxes :ingredient_ids, @ingredients.order('name ASC'), :id, :name do |b| %>
+                  <li>
+                    <%= b.check_box %> <%= b.label %>
+                  </li>
+                <% end %>
+              </ul>
+            </div><!-- end .checkbox-dropdown -->
+          </div><!-- end #myDropdown -->
+        </div><!-- end .dropdown -->
+        <center>
+          <%= f.submit class: "btn btn-default"%>
+        </center>
+      <% end %>
+    </div><!-- end .col-med-6 -->
+    <div class="col-md-3"></div>
+  </div><!-- end .row -->
+</div><!-- end .container-fluid -->
 
 <script>
   function filterFunction() {
