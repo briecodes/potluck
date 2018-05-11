@@ -16,6 +16,7 @@ csv.each do |row|
 end
 
 usr_list = [
+  {name: "App Admin", username: "admin", password: "password"},
   {name: "Bilbo Baggins", username: "bilbo", password: "password"},
   {name: "Gollum", username: "gollum", password: "password"},
   {name: "Beorn", username: "beorn", password: "password"},
